@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = "postgres://postgres:sky123456@localhost/nwen304";
+var connectionString = process.env.DATABASE_URL;
 var client = new pg.Client(connectionString);
 client.connect();
 
@@ -20,20 +20,13 @@ var story = req.query.story;
 
 console.log(typeof(author));
 
-var query = client.query("INSERT INTO post (author,title,content) values ($1,$2,$3)",[author,title,story]);
-
-query.on('row',function(row,result){
- console.log("on row (row): " + row);
- console.log("on row (result):" + result)
+var query = client.query("INSERT INTO post (author,title,content) values ($1,$2,$3)",[author,title,story],function(err){
+	if(err){
+       		console.log(err);
+        }
 });
 
-query.on('err',function(err){
-console.log("on err (err)" + err);
-});
 
-query.on('end',function(result){
-  console.log("on end (result)" + result);
-});
 
 var arr = [];
 

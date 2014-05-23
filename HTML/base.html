@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,6 +23,10 @@
 			.ui-link {
 				font-family: 'Josefin Sans', sans-serif;
 				font-size: 1.5em;
+			}
+			
+			#GPS {
+				visibility:hidden;
 			}
 		</style>
 	</head>
@@ -71,15 +76,30 @@
 			  <input type="text" name="etching" value="Your Etching/Story"><br>
 			  
 			  <input type="file"  name="image" accept="image/*" capture>
-						
 			  <input type="submit" value="Submit form">
 			</form>
 			
-		</div><!-- /content -->
+			<div id="GPS">
+				Latitude : <span id="lat"></span> <br>
+				Longitude : <span id="lng"></span>
+			</div>
+			
+		</div>
+		<!-- /content -->
 				
 				
 	</div><!-- /page -->
 	
+	<script>
+		navigator.geolocation.getCurrentPosition (function (pos)
+		{
+		  var lat = pos.coords.latitude;
+		  var lng = pos.coords.longitude;
+		  $("#lat").text (lat);
+		  $("#lng").text (lng);
+		});
+	</script>
+
 	
 	
 	

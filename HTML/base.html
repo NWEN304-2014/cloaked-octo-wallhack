@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		
+		<style> 
+			body {
+				font-family: 'Josefin Sans', sans-serif;
+				background-color: #000000;
+				font-size: 1.5em;
+			}
+			
+			.ui-link {
+				font-family: 'Josefin Sans', sans-serif;
+				font-size: 1.5em;
+			}
+		</style>
+	</head>
+	
+	<body>
+	<!-- Start of first page -->
+	<div data-role="page" id="find">
+
+		<div data-role="header" data-id="persistent" data-position="fixed">
+			<h1>otherEtchings</h1>
+			
+		    <div data-role="navbar">
+		        <ul>
+		            <li><a href="#" class="ui-btn-active" data-icon="navigation"></a></li>
+		            <li><a href="#etch" data-transition="slide" data-icon="plus"></a></li>
+		        </ul>
+		    </div><!-- /navbar -->
+		</div><!-- /header -->
+		
+		<nav></nav>
+
+		<div role="main" class="ui-content">
+			<h1 id="headline">Headline</h1>
+			<h2 id="author">Author's Name</h2>
+			<p id="etching">The etching content...</p>
+		</div><!-- /content -->
+
+	</div><!-- /page -->
+
+	<!-- Start of second page -->
+	<div data-role="page" id="etch">
+
+		<div data-role="header">
+			<h1>Etch</h1> 
+			<div data-role="navbar">
+		        <ul>
+		            <li><a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a></li>
+		            <li><a href="#" class="ui-btn-active" data-icon="plus"></a></li>
+		        </ul>
+		    </div><!-- /navbar -->
+		</div><!-- /header -->
+
+		<div role="main" class="ui-content">
+			<form action="form.asp">
+			  <input type="text" name="headline" value="Headline"><br>
+			  <input type="text" name="author" value="Your Name (Optional)"><br>
+			  <input type="text" name="etching" value="Your Etching/Story"><br>
+			  
+			  <input type="file"  name="image" accept="image/*" capture>
+						
+			  <input type="submit" value="Submit form">
+			</form>
+			
+		</div><!-- /content -->
+				
+				
+	</div><!-- /page -->
+	
+	
+	
+	
+	</body>
+</html>

@@ -11,23 +11,32 @@
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 		
-		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 		
-		<style> 
-			body {
-				font-family: 'Josefin Sans', sans-serif;
-				background-color: #000000;
-				font-size: 1.5em;
-			}
-			
-			.ui-link {
-				font-family: 'Josefin Sans', sans-serif;
+		<style>
+            .ui-content{
+                min-height: 30em;
+            }
+            
+			body, .ui-link {
 				font-size: 1.5em;
 			}
 			
 			#GPS {
 				visibility:hidden;
 			}
+        
+        @font-face{
+            
+            font-family:JosefinSlab;
+            src:url(fonts/JosefinSlab-Regular.ttf);
+            
+        }
+        input, .ui-content, body, .ui-link, #topBar, textarea{
+            background-color: #0086b2;
+            font-family: JosefinSlab, serif;
+            text-shadow:none;
+            color: #ffffff;
+        }
 		</style>
 	</head>
 	
@@ -35,7 +44,7 @@
 	<!-- Start of first page -->
 	<div data-role="page" id="find">
 
-		<div data-role="header" data-id="persistent" data-position="fixed">
+		<div id="topBar" data-role="header" data-id="persistent" data-position="fixed">
 			<h1>otherEtchings</h1>
 			
 		    <div data-role="navbar">
@@ -59,7 +68,7 @@
 	<!-- Start of second page -->
 	<div data-role="page" id="etch">
 
-		<div data-role="header">
+		<div id="topBar" data-role="header" data-id="persistent" data-position="fixed">
 			<h1>Etch</h1> 
 			<div data-role="navbar">
 		        <ul>
@@ -71,9 +80,9 @@
 
 		<div role="main" class="ui-content">
 			<form action="form.asp">
-			  <input type="text" name="headline" value="Headline"><br>
-			  <input type="text" name="author" value="Your Name (Optional)"><br>
-			  <input type="text" name="etching" value="Your Etching/Story"><br>
+			  <input type="text" name="headline" placeholder="Headline"><br>
+			  <input type="text" name="author" placeholder="Your Name (Optional)"><br>
+			  <textarea rows="45" type="text" name="etching" placeholder="Your Etching/Story"></textarea> <br>
 			  
 			  <input type="file"  name="image" accept="image/*" capture>
 			  <input type="submit" value="Submit form">

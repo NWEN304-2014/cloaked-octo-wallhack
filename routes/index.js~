@@ -55,8 +55,8 @@ var query = client.query("select * from post order by id desc limit 1",function(
 	var headline = result.rows[0].title;
 	var story = result.rows[0].content;
 	
-        	//res.render('base',{author:author, headline:headline, story:story});
-		res.render('base');
+        	res.render('base',{author:author, headline:headline, story:story});
+		//res.render('base');
 	
 
 });

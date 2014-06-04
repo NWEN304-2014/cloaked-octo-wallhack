@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 
-//var connectionString = process.env.DATABASE_URL;
-var connectionString = "postgres://postgres:sky123456@localhost/nwen304";
+var connectionString = process.env.DATABASE_URL;
+//var connectionString = "postgres://postgres:sky123456@localhost/nwen304";
 var client = new pg.Client(connectionString);
 client.connect();
 

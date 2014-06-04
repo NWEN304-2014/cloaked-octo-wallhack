@@ -5,29 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//var multer = require('multer');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
-var pg = require('pg');
-var connectionString = "postgres://postgres:sky123456@localhost/nwen304";
-
-pg.connect(connectionString, function(err, client, done) {
-  if(err) {
-    return console.error('error fetching client from pool', err);
-  }
-  client.query('Select * from user_password', function(err, result) {
-    //call `done()` to release the client back to the pool
-    done();
-
-    if(err) {
-      return console.error('error running query', err);
-    }
-    console.log(result);
-    //output: 1
-  });
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +23,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('multer')({dest:__dirname+'/public'}));
+
+
+/*app.use(multer(
+{dest : __dirname+"/public/images/",
+ onFileUploadStart:function (file){
+ console.log(file.fieldname + ' is starting ...');
+ }
+}));*/
 
 app.use('/', routes);
 app.use('/users', users);

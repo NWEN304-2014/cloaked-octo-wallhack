@@ -1,114 +1,127 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Page Title</title>
+  <head>
+    <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+      <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+      <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+        <style> 
+	  body {
+	    font-family: 'Josefin Sans', sans-serif;
+	    background-color: #000000;
+	    font-size: 1.5em;
+          }
+	  .ui-link {
+	    font-family: 'Josefin Sans', sans-serif;
+	    font-size: 1.5em;
+	  }
+	  #GPS {
+	    visibility:hidden;
+	  }
+	</style>
+  </head>
+  <body>
+    <!-- Start of first page -->
+    <div data-role="page" id="find">
+      <div data-role="header" data-id="persistent" data-position="fixed">
+        <h1>otherEtchings</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#" class="ui-btn-active" data-icon="navigation"></a></li>
+	    <li><a href="#etch" data-transition="slide" data-icon="plus"></a></li>
+          </ul>
+	</div><!-- /navbar -->
+      </div><!-- /header -->
+      <nav></nav>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+      <div role="main" class="ui-content" id="mainpage"style="background-image: url(../public/image/<%= image %>);">
+        <div id="result1"><h1><%= headline %></h1></div>
+	<div id="result2"><h2><%= author %></h2></div>
+	<div id="result3"><p><%= story %></p></div>
+	<!--div id="result4"><img src=./public/image/<%= image %> /></div-->
+        <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />
+      </div><!-- /content -->
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    </div><!-- /page -->
 
+    <!-- Start of second page -->
+    <div data-role="page" id="etch">
+      <div data-role="header">
+        <h1>Etch</h1> 
+	<div data-role="navbar">
+          <ul>
+	    <li><a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a></li>
+            <li><a href="#" class="ui-btn-active" data-icon="plus"></a></li>
+          </ul>
+	</div><!-- /navbar -->
+      </div><!-- /header -->
 
-<style>
-            .ui-content{
-                min-height: 30em;
-            }
-            
-body, .ui-link {
-font-size: 1.5em;
-}
+      <div role="main" class="ui-content">
+<form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
 
-#GPS {
-visibility:hidden;
-}
+        <label for="text-2">Headline:</label>
+        <input type="text" name="headline" id="headlineID"><br>
+        <label for="text-2">Author:</label>
+	<input type="text" name="author" id="authorID"><br>
+        <label for="text-2">Etching:</label>
+        <input type="text" name="etching" id="story"><br>
+        <input type="file" name="image"><br>
+         
+        <input type="hidden" name="latitude" id="lat" />
+        <input type="hidden" name="longitude" id="lng" />
+        <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
+     </form>
+      </div><!-- /content -->
+				
+    </div><!-- /page -->
+	
+    <script type="text/javascript">
+
+    $(document).bind('pageinit', function() {
+      $.ajaxSetup ({
+        cache: false
+      });
+      navigator.geolocation.getCurrentPosition (function (pos)
+      {
+        var lat = pos.coords.latitude;
+        var lng = pos.coords.longitude;
+        $("#lat").val (lat);
+        $("#lng").val (lng);
+      });
         
-        @font-face{
-            
-            font-family:JosefinSlab;
-            src:url(fonts/JosefinSlab-Regular.ttf);
-            
-        }
-        input, .ui-content, body, .ui-link, #topBar,#topBar2, textarea{
-            background-color: #0086b2;
-            font-family: JosefinSlab, serif;
-            text-shadow:none;
-            color: #ffffff;
-        }
-</style>
-</head>
+      /*$( "#submitButton" ).bind( "click", function(event, ui) {
+        var jsonUrl = "http://localhost:3000/submit";
+        var story = { 
+              "headline" : $("#headlineID").val(), 
+              "author" : $("#authorID").val (), 
+              "etching" : $("#story").val (),
+              "latitude" : $("#lat").val(), 
+              "longitude" : $("#lng").val(), 
+        };
+        $.post(jsonUrl,story, function(data) {
+          alert("Story is added");
+          location.reload();
+        }, 'json');
+      });*/
 
-<body>
-<!-- Start of first page -->
-<div data-role="page" id="find">
+      $( "#change" ).bind( "click", function(event, ui) {
+        var jsonUrl = "http://whispering-sea-8582.herokuapp.com/base/change" || "http://localhost:3000/base/change";
+        $.get(jsonUrl, function(data) {
+          $("#result1").html("<h1>"+data.headline+"</h1>")
+          $("#result2").html("<h2>"+data.author+"</h2>")
+          $("#result3").html("<p>"+data.etching+"</p>");
+          //$("#result4").html("<img src=../public/image/"+data.image+">" + "</img>");
+          var image = $('#mainpage');
+          image.css('background-image', 'url(/public/image/'+data.image+')');
+        }, 'json');
+      });
+      
+    });
+    </script>
 
-<div id="topBar" data-role="header" data-id="persistent" data-position="fixed">
-<h1>otherEtchings</h1>
-
-<div data-role="navbar">
-<ul>
-<li><a href="#" class="ui-btn-active" data-icon="navigation"></a></li>
-<li><a href="#etch" data-transition="slide" data-icon="plus"></a></li>
-</ul>
-</div><!-- /navbar -->
-</div><!-- /header -->
-
-<div data-role="main" class="ui-content">
-<h1 id="headline"><%= headline %></h1>
-<h2 id="author"><%= author %></h2>
-<p id="etching"><%= story %></p>
-</div><!-- /content -->
-
-</div><!-- /page -->
-
-<!-- Start of second page -->
-<div data-role="page" id="etch">
-
-<div id="topBar2" data-role="header" data-id="persistent" data-position="fixed">
-<h1>Etch</h1>
-<div data-role="navbar">
-<ul>
-<li><a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a></li>
-<li><a href="#etch" class="ui-btn-active" data-icon="plus"></a></li>
-</ul>
-</div><!-- /navbar -->
-</div><!-- /header -->
-
-<div data-role="main" class="ui-content">
-
-
-	<form method="post" action="/collectData" enctype="multipart/form-data">
-			  <input type="text" name="headline" value="Headline" id="headlineID"><br>
-			  <input type="text" name="author" value="Your Name (Optional)" id="authorID"><br>
-			  <input type="text" name="etching" value="Your Etching/Story" id="story"><br>
-			 <input type="file" name="image" />
-			  <input type="submit" value="Submit form" id="submitButton" />
-			</form>
-
-<div id="GPS">
-Latitude : <span id="lat"></span> <br>
-Longitude : <span id="lng"></span>
-</div>
-
-</div>
-<!-- /content -->
-
-
-</div><!-- /page -->
-
-<script>
-navigator.geolocation.getCurrentPosition (function (pos)
-{
-var lat = pos.coords.latitude;
-var lng = pos.coords.longitude;
-$("#lat").text (lat);
-$("#lng").text (lng);
-});
-</script>
-
-
-
-
-</body>
-
+  </body>
 </html>
+
+

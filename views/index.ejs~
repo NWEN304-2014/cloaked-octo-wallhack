@@ -6,9 +6,9 @@
 
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 		
-		<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 		<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
@@ -71,9 +71,23 @@
 				</p> <p> 
 				Sed ut suscipit justo. Donec laoreet leo nunc, id placerat sem posuere dapibus. Aliquam erat volutpat. Ut non sodales ligula. Pellentesque elementum aliquet lacus, in interdum est blandit bibendum. Maecenas ac turpis tempus sapien porta elementum. Aliquam eu gravida tellus. Fusce commodo faucibus nisi in euismod. Sed ultricies congue purus sit amet facilisis. Sed felis eros, tempor non tincidunt nec, dignissim et diam. Mauris mattis non ante non vehicula. Donec vulputate a nibh ut tincidunt. Suspendisse in metus quis turpis cursus volutpat. Suspendisse sed hendrerit orci. Donec ut diam quis libero accumsan porta a eu lectus. </div>
 				</p> 	
-				<div id='continue'>
-					<a href="/base">Tap to continue..</a>
-				</div>
+        <div role="main" class="ui-content">
+          <form method="post" enctype="multipart/form-data" action="/base" data-ajax="false">
+            <input type="text" name="latitude" id="lat" />
+            <input type="text" name="longitude" id="lng" />
+            <input type="submit" value="Tap to continue" id="submitButton" data-icon="plus" data-iconpos="right" />
+          </form>
+        </div><!-- /content -->
+
+        <script type="text/javascript">
+          navigator.geolocation.getCurrentPosition (function (pos)
+          {
+            var lat = pos.coords.latitude;
+            var lng = pos.coords.longitude;
+            $("#lat").val (lat);
+            $("#lng").val (lng);
+          });  
+        </script>
 			</div>
 			
 			

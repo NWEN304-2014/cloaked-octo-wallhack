@@ -107,11 +107,11 @@
       });*/
 
       $( "#change" ).bind( "click", function(event, ui) {
-        var jsonUrl = "http://whispering-sea-8582.herokuapp.com/base/change" || "http://localhost:3000/base/change";
+        var jsonUrl = "http://rocky-hamlet-2798.herokuapp.com/base/change";
         $.get(jsonUrl, function(data) {
           $("#result1").html("<h1>"+data.headline+"</h1>")
           $("#result2").html("<h2>"+data.author+"</h2>")
-          $("#result3").html("<p>"+data.etching+"</p>");
+          $("#result3").html("<p>"+data.story+"</p>");
           //$("#result4").html("<img src=../public/image/"+data.image+">" + "</img>");
           var image = $('#mainpage');
           image.css('background-image', 'url(/public/image/'+data.image+')');

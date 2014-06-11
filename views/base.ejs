@@ -9,36 +9,50 @@
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-		
-		<style> 
-			.ui-content{
-                min-height: 30em;
+        
+		<style>    
+            .ui-content{
+                min-height: 85vh;
             }
             
             body, .ui-link {
                 font-size: 1.5em;
             }
+            
 
             #GPS {
                 visibility:hidden;
             }
                     
-            @font-face{
-                
-                font-family:JosefinSlab;
-                src:url(../Ass3/fonts/JosefinSlab-Regular.ttf);
-                
-            }
             input, button, .ui-content, body, .ui-link, #topBar,#topBar2, textarea{
                 background-color: #0086b2;
-                font-family: JosefinSlab, serif;
+                font-family: 'Josefin Sans', sans-serif;
                 text-shadow:none;
                 color: #ffffff;
             }
         
-            p{
+            #header{
+                height: 10vh;
+            }
+                        
+            #rightBtn, #leftBtn{
                 position: absolute;
-                top: 5em;
+                top:0;
+                height: 10vh;
+                width: 10vh;
+                padding: 0;
+                border-radius: 0;
+                /*margin:0;*/
+                text-shadow: none;
+                border: none;
+            }
+            
+            #rightBtn{
+                left:0;
+            }
+            
+            #leftBtn{
+                right:0;
             }
 		</style>
 	</head>
@@ -47,17 +61,11 @@
 		<!-- Start of first page -->
 		<div data-role="page" id="find">
 		
-			<div data-role="header" data-id="persistent" data-position="fixed">
+			<div id="header" data-role="header" data-id="persistent" data-position="fixed">
 				<h1>otherEtchings</h1>
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#" class="ui-btn-active" data-icon="navigation"></a></li>
-						<li><a href="#etch" data-transition="slide" data-icon="plus"></a></li>
-					</ul>
-				</div><!-- /navbar -->
+				<a href="#" id="rightBtn" data-icon="navigation"></a>
+                <a href="#etch" id="leftBtn" data-transition="slide" data-icon="plus"></a>
 			</div><!-- /header -->
-			
-			<nav></nav>
 
 			<div role="main" class="ui-content" id="mainpage"style="background-image: url(../public/image/<%= image %>);">
 				<div id="result1"><h1><%= headline %></h1></div>

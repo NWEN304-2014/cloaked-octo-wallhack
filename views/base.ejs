@@ -1,142 +1,202 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Page Title</title>
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-        
-		<style>    
-            .ui-content{
-                min-height: 85vh;
-            }
-            
-            body, .ui-link {
-                font-size: 1.5em;
-            }
-            
 
-            #GPS {
-                visibility:hidden;
-            }
-                    
-            input, button, .ui-content, body, .ui-link, #topBar,#topBar2, textarea{
-                background-color: #0086b2;
-                font-family: 'Josefin Sans', sans-serif;
-                text-shadow:none;
-                color: #ffffff;
-            }
-        
-            #header{
-                height: 10vh;
-            }
-                        
-            #rightBtn, #leftBtn{
-                position: absolute;
-                top:0;
-                height: 10vh;
-                width: 10vh;
-                padding: 0;
-                border-radius: 0;
-                /*margin:0;*/
-                text-shadow: none;
-                border: none;
-            }
+<head>
+    <title>Page Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
+    <style>
+        .ui-content {
+            min-height: 85vh;
+        }
+        body,
+        .ui-link {
+            font-size: 1.5em;
+        }
+        #GPS {
+            visibility: hidden;
+        }
+        input,
+        button,
+        .ui-content,
+        body,
+        .ui-link,
+        #topBar,
+        #topBar2,
+        textarea {
             
-            #rightBtn{
-                left:0;
-            }
-            
-            #leftBtn{
-                right:0;
-            }
-            
-            .fullscreen-img {
-                z-index:0;
-                min-width:100%;
-                background-repeat: no-repeat;
-                background-position:center top;
-                background-size: cover;
-            }
-		</style>
-	</head>
-	
-	<body>
-		<!-- Start of first page -->
-		<div data-role="page" id="find">
-		
-			<div id="header" data-role="header" data-id="persistent" data-position="fixed">
-				<h1>otherEtchings</h1>
-				<a href="#" id="rightBtn" data-icon="navigation"></a>
+            font-family: 'Josefin Sans', sans-serif;
+            text-shadow: none;
+            color: #ffffff;
+        }
+        #header {
+            height: 10vh;
+            background-color: transparent;
+            border: none;
+        }
+        #rightBtn,
+        #leftBtn {
+            position: absolute;
+            top: 0;
+            height: 10vh;
+            width: 10vh;
+            padding: 0;
+            border-radius: 0;
+            background: none;
+            text-shadow: none;
+            border: none;
+            box-shadow: none;
+        }
+        #rightBtn {
+            left: 0;
+        }
+        #leftBtn {
+            right: 0;
+        }
+        .fullscreen-img {
+            z-index: 0;
+            min-width: 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start of first page -->
+    <div data-role="page" id="find" class="fullscreen-img" style="background-image: url(../public/image/<%= image %>);">
+            <div id="header" data-role="header" data-id="persistent" data-position="fixed">
+                <!--<svg xmlns="http://www.w3.org/2000/svg" height="100%">
+                    <rect width="100" height="100" style="fill: #0086b2" />
+                </svg>-->
+                <h1>otherEtchings</h1>
+                <a href="#" id="rightBtn" data-icon="navigation"></a>
                 <a href="#etch" id="leftBtn" data-transition="slide" data-icon="plus"></a>
-			</div><!-- /header -->
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content" id="mainpage">
+                <div id="result1">
+                    <h1><%= headline %></h1>
+                </div>
+                <div id="result2">
+                    <h2><%= author %></h2>
+                </div>
+                <div id="result3">
+                    <p>
+                        <%=s tory %>
+                    </p>
+                </div>
 
-			<div role="main" class="ui-content fullscreen-img" id="mainpage"style="background-image: url(../public/image/<%= image %>);">
-            <!--<div role="main" class="ui-content fullscreen-img" id="mainpage"style="background-image: url(../public/image/image4.jpg);">  -->
-				<div id="result1"><h1><%= headline %></h1></div>
-				<div id="result2"><h2><%= author %></h2></div>
-			<div id="result3"><p><%= story %></p></div>
-			
-			
-			<!--div id="result4"><img src=./public/image/<%= image %> /></div-->
-			<input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />
-			</div><!-- /content -->
 
-		</div><!-- /page -->
+                <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
+                <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />
+            </div>
+            <!-- /content -->
+    </div>
+    <!-- /page -->
 
-		<!-- Start of second page -->
-		<div data-role="page" id="etch">
-		
-			<div data-role="header">
-			<h1>Etch</h1> 
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a></li>
-						<li><a href="#" class="ui-btn-active" data-icon="plus"></a></li>
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /header -->
+    <!-- Start of second page -->
+    <div data-role="page" id="etch">
 
-		<div role="main" class="ui-content">
-		
-		
-		<form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
-			<label for="text-2">Headline:</label>
-			<input type="text" name="headline" id="headlineID"><br>
-			<label for="text-2">Author:</label>
-			<input type="text" name="author" id="authorID"><br>
-			<label for="text-2">Etching:</label>
-			<input type="text" name="etching" id="story"><br>
-			<input type="file" name="image"><br>
+        <div data-role="header">
+            <h1>Etch</h1> 
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="ui-btn-active" data-icon="plus"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /header -->
 
-			<input type="hidden" name="latitude" id="lat" />
-			<input type="hidden" name="longitude" id="lng" />
-			<input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
-		</form>
-		</div><!-- /content -->
+        <div role="main" class="ui-content">
 
-		</div><!-- /page -->
 
-		<script type="text/javascript">
+            <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
+                <label for="text-2">Headline:</label>
+                <input type="text" name="headline" id="headlineID">
+                <br>
+                <label for="text-2">Author:</label>
+                <input type="text" name="author" id="authorID">
+                <br>
+                <label for="text-2">Etching:</label>
+                <input type="text" name="etching" id="story">
+                <br>
+                <input type="file" name="image">
+                <br>
 
-			$(document).bind('pageinit', function() {
-				$.ajaxSetup ({
-					cache: false
-				});
-				
-				navigator.geolocation.getCurrentPosition (function (pos)
-				{
-					var lat = pos.coords.latitude;
-					var lng = pos.coords.longitude;
-					$("#lat").val (lat);
-					$("#lng").val (lng);
-				});
+                <input type="hidden" name="latitude" id="lat" />
+                <input type="hidden" name="longitude" id="lng" />
+                <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
+            </form>
+        </div>
+        <!-- /content -->
 
-				/*$( "#submitButton" ).bind( "click", function(event, ui) {
+    </div>
+    <!-- /page -->
+
+    <!-- Start of second page -->
+    <div data-role="page" id="etch">
+
+        <div data-role="header" id="header">
+            <h1>Etch</h1>
+
+            <a href="#" id="leftBtn" data-icon="plus"></a>
+            <a href="#find" id="rightBtn" data-transition="slide" data-icon="navigation"></a>
+        </div>
+        <!--header-->
+        <div role="main" class="ui-content">
+
+
+            <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
+                <label for="text-2">Headline:</label>
+                <input type="text" name="headline" placeholder="Headline" id="headlineID">
+                <br>
+                <label for="text-2">Author:</label>
+                <input type="text" name="author" placeholder="Author (Optional)" id="authorID">
+                <br>
+                <label for="text-2">Etching:</label>
+                <input type="text" name="etching" placeholder="Your Etching" id="story">
+                <br>
+                <input type="file" name="image">
+                <br>
+
+                <input type="hidden" name="latitude" id="lat" />
+                <input type="hidden" name="longitude" id="lng" />
+                <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
+            </form>
+        </div>
+        <!-- /content -->
+
+    </div>
+    <!-- /page -->
+
+    <script type="text/javascript">
+        $(document).bind('pageinit', function () {
+            $.ajaxSetup({
+                cache: false
+            });
+
+            navigator.geolocation.getCurrentPosition(function (pos) {
+                var lat = pos.coords.latitude;
+                var lng = pos.coords.longitude;
+                $("#lat").val(lat);
+                $("#lng").val(lng);
+            });
+
+            /*$( "#submitButton" ).bind( "click", function(event, ui) {
 					var jsonUrl = "http://localhost:3000/submit";
 					var story = { 
 						"headline" : $("#headlineID").val(), 
@@ -152,22 +212,23 @@
 					}, 'json');
 				});*/
 
-				$( "#change" ).bind( "click", function(event, ui) {
-					var jsonUrl = "http://rocky-hamlet-2798.herokuapp.com/base/change";
-					
-					$.get(jsonUrl, function(data) {
-						$("#result1").html("<h1>"+data.headline+"</h1>")
-						$("#result2").html("<h2>"+data.author+"</h2>")
-						$("#result3").html("<p>"+data.story+"</p>");
-						
-						//$("#result4").html("<img src=../public/image/"+data.image+">" + "</img>");
-						var image = $('#mainpage');
-						image.css('background-image', 'url(/public/image/'+data.image+')');
-					}, 'json');
-				});
-			});
-		</script>
-	</body>
+            $("#change").bind("click", function (event, ui) {
+                var jsonUrl = "http://rocky-hamlet-2798.herokuapp.com/base/change";
+
+                $.get(jsonUrl, function (data) {
+                    $("#result1").html("<h1>" + data.headline + "</h1>")
+                    $("#result2").html("<h2>" + data.author + "</h2>")
+                    $("#result3").html("<p>" + data.story + "</p>");
+
+                    //$("#result4").html("<img src=../public/image/"+data.image+">" + "</img>");
+                    var image = $('#mainpage');
+                    image.css('background-image', 'url(/public/image/' + data.image + ')');
+                }, 'json');
+            });
+        });
+    </script>
+</body>
+
 </html>
 
 

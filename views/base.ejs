@@ -54,6 +54,14 @@
             #leftBtn{
                 right:0;
             }
+            
+            .fullscreen-img {
+                z-index:0;
+                min-width:100%;
+                background-repeat: no-repeat;
+                background-position:center top;
+                background-size: cover;
+            }
 		</style>
 	</head>
 	
@@ -67,7 +75,8 @@
                 <a href="#etch" id="leftBtn" data-transition="slide" data-icon="plus"></a>
 			</div><!-- /header -->
 
-			<div role="main" class="ui-content" id="mainpage"style="background-image: url(../public/image/<%= image %>);">
+			<div role="main" class="ui-content fullscreen-img" id="mainpage"style="background-image: url(../public/image/<%= image %>);">
+            <!--<div role="main" class="ui-content fullscreen-img" id="mainpage"style="background-image: url(../public/image/image4.jpg);">  -->
 				<div id="result1"><h1><%= headline %></h1></div>
 				<div id="result2"><h2><%= author %></h2></div>
 			<div id="result3"><p><%= story %></p></div>

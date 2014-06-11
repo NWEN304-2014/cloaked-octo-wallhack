@@ -30,7 +30,6 @@
         #topBar,
         #topBar2,
         textarea {
-            
             font-family: 'Josefin Sans', sans-serif;
             text-shadow: none;
             color: #ffffff;
@@ -53,10 +52,10 @@
             border: none;
             box-shadow: none;
         }
-        #rightBtn {
+        #leftBtn {
             left: 0;
         }
-        #leftBtn {
+        #rightBtn {
             right: 0;
         }
         .fullscreen-img {
@@ -71,34 +70,34 @@
 
 <body>
     <!-- Start of first page -->
-    <div data-role="page" id="find" class="fullscreen-img" style="background-image: url(../public/image/<%= image %>);">
-            <div id="header" data-role="header" data-id="persistent" data-position="fixed">
-                <!--<svg xmlns="http://www.w3.org/2000/svg" height="100%">
+    <div data-role="page" id="find" class="fullscreen-img" style="background-image: url(../public/image/image4.jpg);">
+        <div id="header" data-role="header" data-id="persistent" data-position="fixed">
+            <!--<svg xmlns="http://www.w3.org/2000/svg" height="100%">
                     <rect width="100" height="100" style="fill: #0086b2" />
                 </svg>-->
-                <h1>otherEtchings</h1>
-                <a href="#" id="rightBtn" data-icon="navigation"></a>
-                <a href="#etch" id="leftBtn" data-transition="slide" data-icon="plus"></a>
+            <h1>otherEtchings</h1>
+            <a href="#etch" id="leftBtn" data-transition="slide" data-icon="plus" data-direction="reverse"></a>
+            <a href="#" id="rightBtn" data-icon="navigation"></a>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content" id="mainpage">
+            <div id="result1">
+                <h1><%= headline %></h1>
             </div>
-            <!-- /header -->
-            <div role="main" class="ui-content" id="mainpage">
-                <div id="result1">
-                    <h1><%= headline %></h1>
-                </div>
-                <div id="result2">
-                    <h2><%= author %></h2>
-                </div>
-                <div id="result3">
-                    <p>
-                        <%=s tory %>
-                    </p>
-                </div>
+            <div id="result2">
+                <h2><%= author %></h2>
+            </div>
+            <div id="result3">
+                <p>
+                    <%=s tory %>
+                </p>
+            </div>
 
 
-                <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
-                <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />
-            </div>
-            <!-- /content -->
+            <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
+            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />
+        </div>
+        <!-- /content -->
     </div>
     <!-- /page -->
 
@@ -107,42 +106,35 @@
 
         <div data-role="header">
             <h1>Etch</h1> 
-            <div data-role="navbar">
-                <ul>
-                    <li>
-                        <a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a>
-                    </li>
-                    <li>
-                        <a href="#" class="ui-btn-active" data-icon="plus"></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /navbar -->
+            <a href="#find" data-transition="slide" data-icon="navigation" data-direction="reverse"></a>
+            <a href="#" class="ui-btn-active" data-icon="plus"></a>
         </div>
-        <!-- /header -->
+        <!-- /navbar -->
+    </div>
+    <!-- /header -->
 
-        <div role="main" class="ui-content">
+    <div role="main" class="ui-content">
 
 
-            <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
-                <label for="text-2">Headline:</label>
-                <input type="text" name="headline" id="headlineID">
-                <br>
-                <label for="text-2">Author:</label>
-                <input type="text" name="author" id="authorID">
-                <br>
-                <label for="text-2">Etching:</label>
-                <input type="text" name="etching" id="story">
-                <br>
-                <input type="file" name="image">
-                <br>
+        <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
+            <label for="text-2">Headline:</label>
+            <input type="text" name="headline" id="headlineID">
+            <br>
+            <label for="text-2">Author:</label>
+            <input type="text" name="author" id="authorID">
+            <br>
+            <label for="text-2">Etching:</label>
+            <input type="text" name="etching" id="story">
+            <br>
+            <input type="file" name="image">
+            <br>
 
-                <input type="hidden" name="latitude" id="lat" />
-                <input type="hidden" name="longitude" id="lng" />
-                <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
-            </form>
-        </div>
-        <!-- /content -->
+            <input type="hidden" name="latitude" id="lat" />
+            <input type="hidden" name="longitude" id="lng" />
+            <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
+        </form>
+    </div>
+    <!-- /content -->
 
     </div>
     <!-- /page -->

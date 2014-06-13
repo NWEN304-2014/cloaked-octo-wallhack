@@ -65,6 +65,21 @@
             background-position: center top;
             background-size: cover;
         }
+        ul
+        {
+            list-style-type: none;
+        }
+        li
+        {
+            padding: 2vh;
+        }
+        #etchSelector
+        {
+            display: inline-block;
+            vertical-align: middle;
+            float:right;
+        }
+        
     </style>
 </head>
 
@@ -80,22 +95,84 @@
             <a href="#" id="rightBtn" data-icon="navigation"></a>
         </div>
         <!-- /header -->
+        
+        <!-- Story pages -->
         <div role="main" class="ui-content" id="mainpage">
-            <div id="result1">
-                <h1><%= headline %></h1>
-            </div>
-            <div id="result2">
-                <h2><%= author %></h2>
-            </div>
-            <div id="result3">
-                <p>
-                    <%=s tory %>
-                </p>
+
+            <div class="etchContent" id="etch1">
+                <div id="result1">
+                    <h1><%= headline1 %></h1>
+                </div>
+                <div id="result2">
+                    <h2><%= author1 %></h2>
+                </div>
+                <div id="result3">
+                    <p><%= story1 %></p>
+                </div>
             </div>
 
+            <div class="etchContent" id="etch2" style="display:none">
+                <div id="result4">
+                    <h1><%= headline2 %></h1>
+                </div>
+                <div id="result5">
+                    <h2><%= author2 %></h2>
+                </div>
+                <div id="result6">
+                    <p><%= story2 %></p>
+                </div>
+            </div>
 
+            <div class="etchContent" id="etch3" style="display:none">
+                <div id="result7">
+                    <h1><%= headline3 %></h1>
+                </div>
+                <div id="result8">
+                    <h2><%= author3 %></h2>
+                </div>
+                <div id="result9">
+                    <p><%= story3 %></p>
+                </div>
+            </div>
+
+             <div class="etchContent" id="etch4" style="display:none">
+                <div id="result10">
+                    <h1><%= headline4 %></h1>
+                </div>
+                <div id="result11">
+                    <h2><%= author4 %></h2>
+                </div>
+                <div id="result12">
+                    <p><%= story4 %></p>
+                </div>
+            </div>
+
+             <div class="etchContent" id="etch5" style="display:none">
+                <div id="result13">
+                    <h1><%= headline5 %></h1>
+                </div>
+                <div id="result14">
+                    <h2><%= author5 %></h2>
+                </div>
+                <div id="result15">
+                    <p><%= story5 %></p>
+                </div>
+            </div>
+            <!-- /Story pages -->
+
+            <div id="etchSelector">
+                <ul id="etchSelectorBtns">
+                    <li><a id="btn1" href="#etch1"><img src="../public/images/xplaceholder.png"></a></li>
+                    <li><a id="btn2" href="#etch2"><img src="../public/images/xplaceholder.png"></a></li>
+                    <li><a id="btn3" href="#etch3"><img src="../public/images/xplaceholder.png"></a></li>
+                    <li><a id="btn4" href="#etch4"><img src="../public/images/xplaceholder.png"></a></li>
+                    <li><a id="btn5" href="#etch5"><img src="../public/images/xplaceholder.png"></a></li>
+                </ul>
+            </div>
+            
+            
             <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
-            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />
+<!--            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />-->
         </div>
         <!-- /content -->
     </div>
@@ -108,7 +185,7 @@
         <div data-role="header" id="header">
             <h1>Etch</h1>
 
-            <a href="#" id="leftBtn" data-icon="plus"></a>
+            <a href="#"id="leftBtn" data-icon="plus"></a>
             <a href="#find" id="rightBtn" data-transition="slide" data-icon="navigation"></a>
         </div>
         <!--header-->
@@ -181,6 +258,50 @@
                 }, 'json');
             });
         });
+        
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("#etch1").show();
+                $("#etch2").hide();
+                $("#etch3").hide();
+                $("#etch4").hide();
+                $("#etch5").hide();
+            });
+            
+            $("#btn2").click(function(){
+                $("#etch2").show();
+                $("#etch1").hide();
+                $("#etch3").hide();
+                $("#etch4").hide();
+                $("#etch5").hide();
+            });
+            
+            $("#btn3").click(function(){
+                $("#etch3").show();
+                $("#etch2").hide();
+                $("#etch1").hide();
+                $("#etch4").hide();
+                $("#etch5").hide();
+            });
+            
+            $("#btn4").click(function(){
+                $("#etch4").show();
+                $("#etch2").hide();
+                $("#etch3").hide();
+                $("#etch1").hide();
+                $("#etch5").hide();
+            });
+            
+            $("#btn5").click(function(){
+                $("#etch5").show();
+                $("#etch2").hide();
+                $("#etch3").hide();
+                $("#etch4").hide();
+                $("#etch1").hide();
+            });
+        });
+        
+        
     </script>
 </body>
 

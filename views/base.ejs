@@ -58,6 +58,11 @@
         #rightBtn {
             right: 0;
         }
+        .ui-content {
+            position:relative;
+            border-style:solid;
+        }
+        
         .fullscreen-img {
             z-index: 0;
             min-width: 100%;
@@ -72,12 +77,20 @@
         li
         {
             padding: 2vh;
+            height: 10vh;
+            width: 10vh;
         }
-        #etchSelector
-        {
-            display: inline-block;
-            vertical-align: middle;
-            float:right;
+        ul li img {
+            height: 7vh;
+        }
+        #etchSelector {
+            position:absolute;
+            right:0px;
+            bottom:0px;
+            top:10vh;
+        }
+        #etchsContainer {
+            width: 90vh;
         }
         
     </style>
@@ -98,68 +111,69 @@
         
         <!-- Story pages -->
         <div role="main" class="ui-content" id="mainpage">
+            <div id="etchsContainer">
+                <div class="etchContent" id="etch1">
+                    <div id="result1">
+                        <h1><%= headline1 %></h1>
+                    </div>
+                    <div id="result2">
+                        <h2><%= author1 %></h2>
+                    </div>
+                    <div id="result3">
+                        <p><%= story1 %></p>
+                    </div>
+                </div>
 
-            <div class="etchContent" id="etch1">
-                <div id="result1">
-                    <h1><%= headline1 %></h1>
+                <div class="etchContent" id="etch2" style="display:none">
+                    <div id="result4">
+                        <h1><%= headline2 %></h1>
+                    </div>
+                    <div id="result5">
+                        <h2><%= author2 %></h2>
+                    </div>
+                    <div id="result6">
+                        <p><%= story2 %></p>
+                    </div>
                 </div>
-                <div id="result2">
-                    <h2><%= author1 %></h2>
-                </div>
-                <div id="result3">
-                    <p><%= story1 %></p>
-                </div>
-            </div>
 
-            <div class="etchContent" id="etch2" style="display:none">
-                <div id="result4">
-                    <h1><%= headline2 %></h1>
+                <div class="etchContent" id="etch3" style="display:none">
+                    <div id="result7">
+                        <h1><%= headline3 %></h1>
+                    </div>
+                    <div id="result8">
+                        <h2><%= author3 %></h2>
+                    </div>
+                    <div id="result9">
+                        <p><%= story3 %></p>
+                    </div>
                 </div>
-                <div id="result5">
-                    <h2><%= author2 %></h2>
-                </div>
-                <div id="result6">
-                    <p><%= story2 %></p>
-                </div>
-            </div>
 
-            <div class="etchContent" id="etch3" style="display:none">
-                <div id="result7">
-                    <h1><%= headline3 %></h1>
+                 <div class="etchContent" id="etch4" style="display:none">
+                    <div id="result10">
+                        <h1><%= headline4 %></h1>
+                    </div>
+                    <div id="result11">
+                        <h2><%= author4 %></h2>
+                    </div>
+                    <div id="result12">
+                        <p><%= story4 %></p>
+                    </div>
                 </div>
-                <div id="result8">
-                    <h2><%= author3 %></h2>
-                </div>
-                <div id="result9">
-                    <p><%= story3 %></p>
-                </div>
-            </div>
 
-             <div class="etchContent" id="etch4" style="display:none">
-                <div id="result10">
-                    <h1><%= headline4 %></h1>
+                 <div class="etchContent" id="etch5" style="display:none">
+                    <div id="result13">
+                        <h1><%= headline5 %></h1>
+                    </div>
+                    <div id="result14">
+                        <h2><%= author5 %></h2>
+                    </div>
+                    <div id="result15">
+                        <p><%= story5 %></p>
+                    </div>
                 </div>
-                <div id="result11">
-                    <h2><%= author4 %></h2>
-                </div>
-                <div id="result12">
-                    <p><%= story4 %></p>
-                </div>
-            </div>
-
-             <div class="etchContent" id="etch5" style="display:none">
-                <div id="result13">
-                    <h1><%= headline5 %></h1>
-                </div>
-                <div id="result14">
-                    <h2><%= author5 %></h2>
-                </div>
-                <div id="result15">
-                    <p><%= story5 %></p>
-                </div>
-            </div>
             <!-- /Story pages -->
-
+            </div>
+            
             <div id="etchSelector">
                 <ul id="etchSelectorBtns">
                     <li><a id="btn1" href="#etch1"><img src="../public/images/xplaceholder.png"></a></li>

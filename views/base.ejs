@@ -59,10 +59,9 @@
             right: 0;
         }
         .ui-content {
-            position:relative;
-            border-style:solid;
+            position: relative;
+            border-style: solid;
         }
-        
         .fullscreen-img {
             z-index: 0;
             min-width: 100%;
@@ -70,12 +69,10 @@
             background-position: center top;
             background-size: cover;
         }
-        ul
-        {
+        ul {
             list-style-type: none;
         }
-        li
-        {
+        li {
             padding: 2vh;
             height: 10vh;
             width: 10vh;
@@ -84,24 +81,31 @@
             height: 7vh;
         }
         #etchSelector {
-            position:absolute;
-            right:0px;
-            bottom:0px;
-            top:10vh;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            top: 10vh;
         }
         #etchsContainer {
             width: 90vh;
         }
-
-	#headerBarFind, #headerBarEtch{
-		position: absolute;
-		z-index: -1;
-	}
-	
-	#headerBarFind{left: -10vh;}
-	#headerBarEtch{right: -10vh;}
-#etch{background: none;s}
-        
+        #headerBarFind,
+        #headerBarEtch {
+            position: absolute;
+            z-index: -1;
+        }
+        #headerBarFind {
+            left: -10vh;
+        }
+        #headerBarEtch {
+            right: -10vh;
+        }
+        #etch {
+            background: none;
+        }
+        .pageTitle{
+            text-shadow: none;
+        }
     </style>
 </head>
 
@@ -110,14 +114,14 @@
     <div data-role="page" id="find" class="fullscreen-img" style="background-image: url(../public/image/image4.jpg);">
         <div id="header" data-role="header" data-id="persistent" data-position="fixed">
             <svg id="headerBarFind" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
-                    <rect width="100%" height="100" style="fill: #0086b2" />
-                </svg>
-            <h1>otherEtchings</h1>
+                <rect width="100%" height="100%" style="fill: #0086b2" />
+            </svg>
+            <h1 class="pageTitle">otherEtchings</h1>
             <a href="#etch" id="leftBtn" data-transition="slide" data-icon="plus" data-direction="reverse"></a>
             <a href="#" id="rightBtn" data-icon="navigation"></a>
         </div>
         <!-- /header -->
-        
+
         <!-- Story pages -->
         <div role="main" class="ui-content" id="mainpage">
             <div id="etchsContainer">
@@ -129,7 +133,9 @@
                         <h2><%= author1 %></h2>
                     </div>
                     <div id="result3">
-                        <p><%= story1 %></p>
+                        <p>
+                            <%=s tory1 %>
+                        </p>
                     </div>
                 </div>
 
@@ -141,7 +147,9 @@
                         <h2><%= author2 %></h2>
                     </div>
                     <div id="result6">
-                        <p><%= story2 %></p>
+                        <p>
+                            <%=s tory2 %>
+                        </p>
                     </div>
                 </div>
 
@@ -153,11 +161,13 @@
                         <h2><%= author3 %></h2>
                     </div>
                     <div id="result9">
-                        <p><%= story3 %></p>
+                        <p>
+                            <%=s tory3 %>
+                        </p>
                     </div>
                 </div>
 
-                 <div class="etchContent" id="etch4" style="display:none">
+                <div class="etchContent" id="etch4" style="display:none">
                     <div id="result10">
                         <h1><%= headline4 %></h1>
                     </div>
@@ -165,11 +175,13 @@
                         <h2><%= author4 %></h2>
                     </div>
                     <div id="result12">
-                        <p><%= story4 %></p>
+                        <p>
+                            <%=s tory4 %>
+                        </p>
                     </div>
                 </div>
 
-                 <div class="etchContent" id="etch5" style="display:none">
+                <div class="etchContent" id="etch5" style="display:none">
                     <div id="result13">
                         <h1><%= headline5 %></h1>
                     </div>
@@ -177,25 +189,47 @@
                         <h2><%= author5 %></h2>
                     </div>
                     <div id="result15">
-                        <p><%= story5 %></p>
+                        <p>
+                            <%=s tory5 %>
+                        </p>
                     </div>
                 </div>
-            <!-- /Story pages -->
+                <!-- /Story pages -->
             </div>
-            
+
             <div id="etchSelector">
                 <ul id="etchSelectorBtns">
-                    <li><a id="btn1" href="#etch1"><img src="../public/images/xplaceholder.png"></a></li>
-                    <li><a id="btn2" href="#etch2"><img src="../public/images/xplaceholder.png"></a></li>
-                    <li><a id="btn3" href="#etch3"><img src="../public/images/xplaceholder.png"></a></li>
-                    <li><a id="btn4" href="#etch4"><img src="../public/images/xplaceholder.png"></a></li>
-                    <li><a id="btn5" href="#etch5"><img src="../public/images/xplaceholder.png"></a></li>
+                    <li>
+                        <a id="btn1" href="#etch1">
+                            <img src="../public/images/xplaceholder.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a id="btn2" href="#etch2">
+                            <img src="../public/images/xplaceholder.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a id="btn3" href="#etch3">
+                            <img src="../public/images/xplaceholder.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a id="btn4" href="#etch4">
+                            <img src="../public/images/xplaceholder.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a id="btn5" href="#etch5">
+                            <img src="../public/images/xplaceholder.png">
+                        </a>
+                    </li>
                 </ul>
             </div>
-            
-            
+
+
             <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
-<!--            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />-->
+            <!--            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />-->
         </div>
         <!-- /content -->
     </div>
@@ -206,13 +240,13 @@
     <div data-role="page" id="etch">
 
         <div data-role="header" id="header">
- <svg id="headerBarEtch" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
-                    <rect width="100%" height="100" style="fill: #0086b2" />
-                </svg>
+            <svg id="headerBarEtch" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
+                <rect width="100%" height="100" style="fill: #0086b2" />
+            </svg>
 
-            <h1>Etch</h1>
+            <h1 class="pageTitle">Etch</h1>
 
-            <a href="#"id="leftBtn" data-icon="plus"></a>
+            <a href="#" id="leftBtn" data-icon="plus"></a>
             <a href="#find" id="rightBtn" data-transition="slide" data-icon="navigation"></a>
         </div>
         <!--header-->
@@ -285,41 +319,41 @@
                 }, 'json');
             });
         });
-        
-        $(document).ready(function(){
-            $("#btn1").click(function(){
+
+        $(document).ready(function () {
+            $("#btn1").click(function () {
                 $("#etch1").show();
                 $("#etch2").hide();
                 $("#etch3").hide();
                 $("#etch4").hide();
                 $("#etch5").hide();
             });
-            
-            $("#btn2").click(function(){
+
+            $("#btn2").click(function () {
                 $("#etch2").show();
                 $("#etch1").hide();
                 $("#etch3").hide();
                 $("#etch4").hide();
                 $("#etch5").hide();
             });
-            
-            $("#btn3").click(function(){
+
+            $("#btn3").click(function () {
                 $("#etch3").show();
                 $("#etch2").hide();
                 $("#etch1").hide();
                 $("#etch4").hide();
                 $("#etch5").hide();
             });
-            
-            $("#btn4").click(function(){
+
+            $("#btn4").click(function () {
                 $("#etch4").show();
                 $("#etch2").hide();
                 $("#etch3").hide();
                 $("#etch1").hide();
                 $("#etch5").hide();
             });
-            
-            $("#btn5").click(function(){
+
+            $("#btn5").click(function () {
                 $("#etch5").show();
                 $("#etch2").hide();
                 $("#etch3").hide();
@@ -327,8 +361,6 @@
                 $("#etch1").hide();
             });
         });
-        
-        
     </script>
 </body>
 

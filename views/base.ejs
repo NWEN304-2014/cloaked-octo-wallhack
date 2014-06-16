@@ -64,7 +64,7 @@
         }
         .fullscreen-img {
             z-index: 0;
-            min-width: 100%;
+            min-height: 100%;
             background-repeat: no-repeat;
             background-position: center top;
             background-size: cover;
@@ -134,7 +134,7 @@
                     </div>
                     <div id="result3">
                         <p>
-                            <%=s tory1 %>
+                            <%= story1 %>
                         </p>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                     </div>
                     <div id="result6">
                         <p>
-                            <%=s tory2 %>
+                            <%= story2 %>
                         </p>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                     </div>
                     <div id="result9">
                         <p>
-                            <%=s tory3 %>
+                            <%= story3 %>
                         </p>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                     </div>
                     <div id="result12">
                         <p>
-                            <%=s tory4 %>
+                            <%= story4 %>
                         </p>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                     </div>
                     <div id="result15">
                         <p>
-                            <%=s tory5 %>
+                            <%= story5 %>
                         </p>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
 
         <div data-role="header" id="header">
             <svg id="headerBarEtch" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
-                <rect width="100%" height="100" style="fill: #0086b2" />
+                <rect width="100%" height="100%" style="fill: #0086b2" />
             </svg>
 
             <h1 class="pageTitle">Etch</h1>
@@ -360,6 +360,18 @@
                 $("#etch4").hide();
                 $("#etch1").hide();
             });
+
+            var viewHeight;
+            var viewWidth;
+
+            if(typeof window.innerWidth != undefined) {
+                viewHeight = window.innerHeight;
+                viewWidth = window.innerWidth;
+
+
+            }
+
+
         });
     </script>
 </body>

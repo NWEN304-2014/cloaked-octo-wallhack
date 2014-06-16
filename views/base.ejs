@@ -87,7 +87,7 @@
             top: 10vh;
         }
         #etchsContainer {
-            width: 90vh;
+/*            width: 90vh;*/
         }
         #headerBarFind,
         #headerBarEtch {
@@ -368,7 +368,7 @@
                 viewHeight = window.innerHeight;
                 viewWidth = window.innerWidth;
 
-
+                document.getElementById("etchsContainer").style.width = viewWidth - (0.18*viewHeight)+'px';
             }
 
 

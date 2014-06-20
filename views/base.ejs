@@ -11,7 +11,6 @@
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-
     <style>
         .ui-content {
             min-height: 85vh;
@@ -90,6 +89,14 @@
         ul li svg {
             height: 7vh;
         }
+        input{
+            margin-left: 0;
+        }
+        .ui-mobile label{
+            background-color: #0086b2;
+            margin-right:0;
+            min-height: 2.2em;
+        }
         #etchSelector {
             position: fixed;
             right: 1vh;
@@ -112,7 +119,7 @@
             right: -10vh;
         }
         #etch {
-            background: grey;
+            background: none;
         }
         .pageTitle {
             text-shadow: none;
@@ -318,7 +325,7 @@
 
     <!-- Start of second page -->
     <div data-role="page" id="etch">
-
+        <div id="imgTint"></div>
         <div data-role="header" id="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
             <svg id="headerBarEtch" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
                 <rect width="100%" height="100%" style="fill: #0086b2" />
@@ -336,16 +343,22 @@
         <!--header-->
         <div role="main" class="ui-content">
 
-
             <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
-                <label for="text-2">Headline:</label>
-                <input type="text" name="headline" placeholder="Headline" id="headlineID">
+                <div class="ui-field-contain">
+                    <label for="text-2">Headline:</label>
+                    <input type="text" name="headline" placeholder="Headline" id="headlineID">
+                </div>
                 <br>
+                 <div class="ui-field-contain">
                 <label for="text-2">Author:</label>
                 <input type="text" name="author" placeholder="Author (Optional)" id="authorID">
+                </div>
                 <br>
+                 <div class="ui-field-contain">
                 <label for="text-2">Etching:</label>
-                <input type="text" name="etching" placeholder="Your Etching" id="story">
+<!--                <input type="text" name="etching" placeholder="Your Etching" id="story">-->
+                <textarea cols="40" rows="8" name="etching" placeholder="Your Etching" id="story"></textarea>
+                </div>
                 <br>
                 <div style="height:0px;overflow:hidden">
                     <input type="file" id="fileInput" name="fileInput" />

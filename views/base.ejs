@@ -109,12 +109,12 @@
         .pageTitle {
             text-shadow: none;
         }
-        #imgTint {
-            position: fixed;
-            background: rgba(0, 0, 0, 0.15);
+        #etchBackground {
+            position: absolute;
+            background: rgba(0, 0, 0, 1);
             width: 100vw;
-            top: 0;
-            height: 100vh;
+            top: 100vh;
+            height: 100%;
         }
         .navIcon {
             display: block;
@@ -122,21 +122,22 @@
             height: 7vh;
             margin-top: 1.5vh;
         }
-        #mainpage {
-            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 93%, rgba(0, 0, 0, 1) 100%);
-            /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(59%, rgba(0, 0, 0, 0)), color-stop(93%, rgba(0, 0, 0, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
-            /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 93%, rgba(0, 0, 0, 1) 100%);
-            /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 93%, rgba(0, 0, 0, 1) 100%);
-            /* Opera 11.10+ */
-            background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 93%, rgba(0, 0, 0, 1) 100%);
-            /* IE10+ */
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 93%, rgba(0, 0, 0, 1) 100%);
-            /* W3C */
-            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
-            /* IE6-9 */
+        #gradient {
+            width: 100vw;
+            top: 0;
+            height: 100%;
+            position:absolute;
+
+            background: -moz-linear-gradient(top,  rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 59%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.15)), color-stop(59%,rgba(0,0,0,0.35)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.35) 59%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.35) 59%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.35) 59%,rgba(0,0,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.35) 59%,rgba(0,0,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+
+
         }
         .ui-btn {
             color: #ffffff;
@@ -175,7 +176,8 @@
             </a>
         </div>
         <!-- /header -->
-        <div id="imgTint"></div>
+        <div id="gradient"></div>
+        <div id="etchBackground"></div>
         <!-- Story pages -->
         <div role="main" class="ui-content" id="mainpage">
             <div id="etchsContainer">
@@ -400,6 +402,9 @@
 
          // Story navigation buttons
         $(document).ready(function () {
+            var etchHeight = $("#etch1").height();
+            $("#etchBackground").css("height", etchHeight);
+
             $("#btn1").click(function () {
                 $("#etch1").show();
                 $("#etch2").hide();
@@ -407,8 +412,17 @@
                 $("#etch4").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn1 .rotating");
+<<<<<<< HEAD
                 $(".rotated").attr("class", "rotating");
                 btnImg.attr("class", "rotating rotated blue");
+=======
+                if(btnImg.not(".rotated")){
+                    $(".rotated").toggleClass("rotated");
+                    btnImg.toggleClass("rotated");
+                }
+                var etchHeight = $("#etch1").height();
+                $("#etchBackground").css("height", etchHeight);
+>>>>>>> origin/master
             });
 
             $("#btn2").click(function () {
@@ -418,8 +432,18 @@
                 $("#etch4").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn2 .rotating");
+<<<<<<< HEAD
                 $(".rotated").attr("class", "rotating");
                 btnImg.attr("class", "rotating rotated blue");
+=======
+                if(btnImg.not(".rotated")){
+                    $(".rotated").toggleClass("rotated");
+                    btnImg.toggleClass("rotated");
+                }
+
+                var etchHeight = $("#etch2").height();
+                $("#etchBackground").css("height", etchHeight);
+>>>>>>> origin/master
             });
 
             $("#btn3").click(function () {
@@ -429,8 +453,17 @@
                 $("#etch4").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn3 .rotating");
+<<<<<<< HEAD
                 $(".rotated").attr("class", "rotating");
                 btnImg.attr("class", "rotating rotated blue");
+=======
+                if(btnImg.not(".rotated")){
+                    $(".rotated").toggleClass("rotated");
+                    btnImg.toggleClass("rotated");
+                }
+                var etchHeight = $("#etch3").height();
+                $("#etchBackground").css("height", etchHeight);
+>>>>>>> origin/master
             });
 
             $("#btn4").click(function () {
@@ -440,8 +473,17 @@
                 $("#etch1").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn4 .rotating");
+<<<<<<< HEAD
                 $(".rotated").attr("class", "rotating");
                 btnImg.attr("class", "rotating rotated blue");
+=======
+                if(btnImg.not(".rotated")){
+                    $(".rotated").toggleClass("rotated");
+                    btnImg.toggleClass("rotated");
+                }
+                var etchHeight = $("#etch4").height();
+                $("#etchBackground").css("height", etchHeight);
+>>>>>>> origin/master
             });
 
             $("#btn5").click(function () {
@@ -451,8 +493,17 @@
                 $("#etch4").hide();
                 $("#etch1").hide();
                 var btnImg = $("#btn5 .rotating");
+<<<<<<< HEAD
                 $(".rotated").attr("class", "rotating");
                 btnImg.attr("class", "rotating rotated blue");
+=======
+                if(btnImg.not(".rotated")){
+                    $(".rotated").toggleClass("rotated");
+                    btnImg.toggleClass("rotated");
+                }
+                var etchHeight = $("#etch5").height();
+                $("#etchBackground").css("height", etchHeight);
+>>>>>>> origin/master
             });
 
             // Calculating widths of story and the navigation

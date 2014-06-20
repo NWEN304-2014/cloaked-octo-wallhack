@@ -79,7 +79,7 @@
             height: 10vh;
             width: 10vh;
         }
-        ul li img {
+        ul li svg {
             height: 7vh;
         }
         #etchSelector {
@@ -153,6 +153,9 @@
             -moz-transform: rotate(45deg);
             -o-transform: rotate(45deg);
         }
+        .blue rect{
+            fill: #0086b2;
+        }
     </style>
 </head>
 
@@ -165,10 +168,10 @@
             </svg>
             <h1 class="pageTitle">otherEtchings</h1>
             <a href="#etch" id="leftBtn" data-transition="slide" data-direction="reverse">
-                <img class="navIcon" src="../public/images/xplaceholder.png">
+                <img class="navIcon" src="../public/images/+.svg">
             </a>
             <a href="#" id="rightBtn">
-                <img class="navIcon" src="../public/images/xplaceholder.png">
+                <img class="navIcon" src="../public/images/+.svg">
             </a>
         </div>
         <!-- /header -->
@@ -179,17 +182,15 @@
                 <div class="etchContent" id="etch1">
                     <div id="result1">
                         <h1><%= headline1 %></h1>
-                        <!--                        <h1>Lorem Ipsum</h1>-->
+<!--                        <h1>Lorem Ipsum</h1>-->
                     </div>
                     <div id="result2">
                         <h2><%= author1 %></h2>
-                        <!--                        <h2>Neque porro quisquam </h2>-->
+<!--                        <h2>Neque porro quisquam </h2>-->
                     </div>
                     <div id="result3">
-                        <p>
-                            <%= story1 %>
-                        </p>
-                        <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat aliquet augue vel viverra. Quisque aliquam, massa non tempus varius, urna enim condimentum elit, non interdum augue ligula sit amet dolor. Ut ultricies feugiat viverra. Cras nunc libero, mollis ut porttitor condimentum, iaculis ac libero. Maecenas porttitor lorem sit amet ornare adipiscing. Nullam ac malesuada metus. Curabitur a rutrum eros, id condimentum libero. Nam in porta ipsum, faucibus commodo nunc. Integer sed nibh enim. Curabitur dui elit, scelerisque nec arcu in, consequat fermentum dui. Nulla facilisi. </p>-->
+                        <p><%= story1 %></p>
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat aliquet augue vel viverra. Quisque aliquam, massa non tempus varius, urna enim condimentum elit, non interdum augue ligula sit amet dolor. Ut ultricies feugiat viverra. Cras nunc libero, mollis ut porttitor condimentum, iaculis ac libero. Maecenas porttitor lorem sit amet ornare adipiscing. Nullam ac malesuada metus. Curabitur a rutrum eros, id condimentum libero. Nam in porta ipsum, faucibus commodo nunc. Integer sed nibh enim. Curabitur dui elit, scelerisque nec arcu in, consequat fermentum dui. Nulla facilisi.</p>-->
                     </div>
                 </div>
 
@@ -254,28 +255,43 @@
             <div id="etchSelector">
                 <ul id="etchSelectorBtns">
                     <li>
-                        <a id="btn1"  href="#etch1">
-                            <img class="rotating rotated" src="../public/images/x.png">
+                        <a id="btn1" href="#etch1">
+                            <svg class="rotating rotated blue" viewbox="0 0 64 64">
+                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                            </svg>
                         </a>
                     </li>
                     <li>
                         <a id="btn2" href="#etch2">
-                            <img class="rotating" src="../public/images/x.png">
+                            <svg class="rotating" viewbox="0 0 64 64">
+                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                            </svg>
                         </a>
                     </li>
                     <li>
                         <a id="btn3" href="#etch3">
-                            <img class="rotating" src="../public/images/x.png">
+                            <svg class="rotating" viewbox="0 0 64 64">
+                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                            </svg>
                         </a>
                     </li>
                     <li>
                         <a id="btn4" href="#etch4">
-                            <img class="rotating" src="../public/images/x.png">
+                            <svg class="rotating" viewbox="0 0 64 64">
+                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                            </svg>
                         </a>
                     </li>
                     <li>
                         <a id="btn5" href="#etch5">
-                            <img class="rotating" src="../public/images/x.png">
+                            <svg class="rotating" viewbox="0 0 64 64">
+                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                            </svg>
                         </a>
                     </li>
                 </ul>
@@ -301,10 +317,10 @@
             <h1 class="pageTitle">Etch</h1>
 
             <a href="#" id="leftBtn">
-                <img src="../public/images/xplaceholder.png" class="navIcon">
+                <img src="../public/images/+.svg" class="navIcon">
             </a>
             <a href="#find" id="rightBtn" data-transition="slide">
-                <img class="navIcon" src="../public/images/xplaceholder.png">
+                <img class="navIcon" src="../public/images/+.svg">
             </a>
         </div>
         <!--header-->
@@ -391,10 +407,8 @@
                 $("#etch4").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn1 .rotating");
-                if(btnImg.not(".rotated")){
-                    $(".rotated").toggleClass("rotated");
-                    btnImg.toggleClass("rotated");
-                }
+                $(".rotated").attr("class", "rotating");
+                btnImg.attr("class", "rotating rotated blue");
             });
 
             $("#btn2").click(function () {
@@ -404,10 +418,8 @@
                 $("#etch4").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn2 .rotating");
-                if(btnImg.not(".rotated")){
-                    $(".rotated").toggleClass("rotated");
-                    btnImg.toggleClass("rotated");
-                }
+                $(".rotated").attr("class", "rotating");
+                btnImg.attr("class", "rotating rotated blue");
             });
 
             $("#btn3").click(function () {
@@ -417,10 +429,8 @@
                 $("#etch4").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn3 .rotating");
-                if(btnImg.not(".rotated")){
-                    $(".rotated").toggleClass("rotated");
-                    btnImg.toggleClass("rotated");
-                }
+                $(".rotated").attr("class", "rotating");
+                btnImg.attr("class", "rotating rotated blue");
             });
 
             $("#btn4").click(function () {
@@ -430,10 +440,8 @@
                 $("#etch1").hide();
                 $("#etch5").hide();
                 var btnImg = $("#btn4 .rotating");
-                if(btnImg.not(".rotated")){
-                    $(".rotated").toggleClass("rotated");
-                    btnImg.toggleClass("rotated");
-                }
+                $(".rotated").attr("class", "rotating");
+                btnImg.attr("class", "rotating rotated blue");
             });
 
             $("#btn5").click(function () {
@@ -443,10 +451,8 @@
                 $("#etch4").hide();
                 $("#etch1").hide();
                 var btnImg = $("#btn5 .rotating");
-                if(btnImg.not(".rotated")){
-                    $(".rotated").toggleClass("rotated");
-                    btnImg.toggleClass("rotated");
-                }
+                $(".rotated").attr("class", "rotating");
+                btnImg.attr("class", "rotating rotated blue");
             });
 
             // Calculating widths of story and the navigation

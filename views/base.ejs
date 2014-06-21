@@ -510,7 +510,10 @@
                 viewWidth = window.innerWidth;
                 document.getElementById("etchsContainer").style.width = viewWidth - (0.18 * viewHeight) + 'px';
             }
-
+            
+            $("#rightBtn").click(function () {
+                document.getElementById("etchSelector").style.right = 1 + 'vh';
+            });
         });
 
         

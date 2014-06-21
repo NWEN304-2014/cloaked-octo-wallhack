@@ -1,0 +1,161 @@
+
+.ui-content {
+    min-height: 85vh;
+}
+body,
+.ui-link {
+    font-size: 1.5em;
+}
+#GPS {
+    visibility: hidden;
+}
+input,
+button,
+.ui-content,
+body,
+.ui-link,
+#topBar,
+#topBar2,
+textarea,
+.ui-btn {
+    font-family: 'Josefin Sans', sans-serif;
+    text-shadow: none;
+    color: #ffffff;
+}
+.ui-corner-all, .ui-btn.ui-corner-all {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+#header {
+    height: 10vh;
+    background-color: transparent;
+    border: none;
+}
+#rightBtn,
+#leftBtn {
+    position: absolute;
+    top: 0;
+    height: 10vh;
+    width: 10vh;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    text-shadow: none;
+    border: none;
+    box-shadow: none;
+}
+#leftBtn {
+    left: 0;
+}
+#rightBtn {
+    right: 0;
+}
+#headlineID{
+    border-radius: 0;
+    border: none;
+}
+.ui-content {
+    position: relative;
+    border-style: solid;
+}
+.fullscreen-img {
+    z-index: 0;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    padding: 1vh;
+    height: 10vh;
+    width: 10vh;
+}
+ul li svg {
+    height: 7vh;
+}
+input{
+    margin-left: 0;
+}
+.ui-mobile label{
+    background-color: #0086b2;
+    margin-right:0;
+    min-height: 2.2em;
+}
+#etchSelector {
+    position: fixed;
+    right: 1vh;
+    bottom: 0px;
+    top: 20vh;
+}
+#etchsContainer {
+    /*            width: 90vh;*/
+    margin-top: 70vh;
+}
+#headerBarFind,
+#headerBarEtch {
+    position: absolute;
+    z-index: -1;
+}
+#headerBarFind {
+    left: -10vh;
+}
+#headerBarEtch {
+    right: -10vh;
+}
+#etch {
+    background: none;
+}
+.pageTitle {
+    text-shadow: none;
+}
+#etchBackground {
+    position: absolute;
+    background: rgba(0, 0, 0, 1);
+    width: 100vw;
+    top: 100vh;
+    height: 100%;
+}
+.navIcon {
+    display: block;
+    margin: 0 auto;
+    height: 7vh;
+    margin-top: 1.5vh;
+}
+#gradient {
+    width: 100vw;
+    top: 0;
+    height: 100%;
+    position:absolute;
+
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 59%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.1)), color-stop(59%,rgba(0,0,0,0.3)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+
+
+}
+.ui-btn {
+    color: #ffffff;
+}
+.rotating {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.rotated {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.blue rect{
+    fill: #0086b2;
+}

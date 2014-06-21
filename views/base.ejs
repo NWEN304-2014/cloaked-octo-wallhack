@@ -5,7 +5,7 @@
     <title>Etch</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -105,7 +105,8 @@
         }
         #etchsContainer {
             /*            width: 90vh;*/
-            margin-top: 70vh;
+            margin-top: 70vh; 	
+            transform: translate3d(0,0,0);
         }
         #headerBarFind,
         #headerBarEtch {
@@ -524,22 +525,22 @@
             $("#fileInput").click();
         }
         
-        //Double tap detection for fullscreen image
-        $("etchsContainer").doubletap(
-            /** doubletap-dblclick callback */
-            function(event){
-                $("#etch1").html();
-            },
-            /** touch-click callback (touch) */
-            function(event){
-                $("#etch2").html();
-            },
-            /** doubletap-dblclick delay (default is 500 ms) */
-            400
-        );
+//        //Double tap detection for fullscreen image
+//        $("etchsContainer").doubletap(
+//            /** doubletap-dblclick callback */
+//            function(event){
+//                $("#etch1").html();
+//            },
+//            /** touch-click callback (touch) */
+//            function(event){
+//                $("#etch2").html();
+//            },
+//            /** doubletap-dblclick delay (default is 500 ms) */
+//            400
+//        );
     </script>
     
-    <script>
+    <!--<script>
         /*!
         * jQuery Double Tap Plugin.
         *
@@ -582,7 +583,7 @@
                 });
             };
         })(jQuery);
-    </script>
+    </script>-->
 </body>
 
 </html>

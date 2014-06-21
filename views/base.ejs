@@ -510,6 +510,40 @@
                 viewWidth = window.innerWidth;
                 document.getElementById("etchsContainer").style.width = viewWidth - (0.18 * viewHeight) + 'px';
             }
+            
+            
+            var mylatesttap;
+            $("#mainpage").click( function doubletap() {
+//                    console.log('click');
+//                    console.log(mylatesttap);
+                    var now = new Date().getTime();
+//                    console.log(now);
+                    var timesince = now - mylatesttap;
+//                    console.log(timesince);
+                    
+                    if((timesince < 600) && (timesince > 0)){
+                        // double tap   
+//                        console.log('double tap');
+                        $("#header").fadeToggle( "slow", "linear" );
+                        $("#etchSelector").fadeToggle( "slow", "linear" );
+                        $("#etchsContainer").fadeToggle( "slow", "linear" );
+                        $("#gradient").fadeToggle( "slow", "linear" );
+                        $("#etchBackground").fadeToggle( "slow", "linear" );
+                        
+                        
+                        
+                        $("#fullscreen-img").css("background-size", contain);
+                    }else{
+                            // too much time to be a doubletap
+
+//                        console.log('not double tap');
+                         }
+
+                    mylatesttap = new Date().getTime();
+//                    console.log(mylatesttap);
+
+                }
+            );
 
         });
 
@@ -526,65 +560,7 @@
             $("#fileInput").click();
         }
         
-//        //Double tap detection for fullscreen image
-//        $("etchsContainer").doubletap(
-//            /** doubletap-dblclick callback */
-//            function(event){
-//                $("#etch1").html();
-//            },
-//            /** touch-click callback (touch) */
-//            function(event){
-//                $("#etch2").html();
-//            },
-//            /** doubletap-dblclick delay (default is 500 ms) */
-//            400
-//        );
     </script>
-    
-    <!--<script>
-        /*!
-        * jQuery Double Tap Plugin.
-        *
-        * Copyright (c) 2010 Raul Sanchez (http://www.appcropolis.com)
-        *
-        * Dual licensed under the MIT and GPL licenses:
-        * http://www.opensource.org/licenses/mit-license.php
-        * http://www.gnu.org/licenses/gpl.html
-        */
-        (function($){
-            // Determine if we on iPhone or iPad
-            var isiOS = false;
-            var agent = navigator.userAgent.toLowerCase();
-            if(agent.indexOf('iphone') &gt;= 0 || agent.indexOf('ipad') &gt;= 0){
-                   isiOS = true;
-            }
-            $.fn.doubletap = function(onDoubleTapCallback, onTapCallback, delay){
-                var eventName, action;
-                delay = delay == null? 500 : delay;
-                eventName = isiOS == true? 'touchend' : 'click';
-                $(this).bind(eventName, function(event){
-                    var now = new Date().getTime();
-                    var lastTouch = $(this).data('lastTouch') || now + 1 /** the first time this will make delta a negative number */;
-                    var delta = now - lastTouch;
-                    clearTimeout(action);
-                    if(delta&lt;500 &amp;&amp; delta&gt;0){
-                        if(onDoubleTapCallback != null &amp;&amp; typeof onDoubleTapCallback == 'function'){
-                            onDoubleTapCallback(event);
-                        }
-                    }else{
-                        $(this).data('lastTouch', now);
-                        action = setTimeout(function(evt){
-                            if(onTapCallback != null &amp;&amp; typeof onTapCallback == 'function'){
-                                onTapCallback(evt);
-                            }
-                            clearTimeout(action);   // clear the timeout
-                        }, delay, [event]);
-                    }
-                    $(this).data('lastTouch', now);
-                });
-            };
-        })(jQuery);
-    </script>-->
 </body>
 
 </html>

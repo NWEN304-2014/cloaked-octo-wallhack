@@ -1,228 +1,223 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Etch</title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <title>Etch</title>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="ajax.js"></script>
+        <script src="buttons.js"></script>
+        <script src="functions.js"></script>
 
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-    <script src="ajax.js"></script>
-    <script src="buttons.js"></script>
-    <script src="functions.js"></script>
-    
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="styles.css.">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="styles.css.">
+    </head>
 
-</head>
-
-<body>
-    <!-- Start of first page -->
-    <div data-role="page" id="find" class="fullscreen-img" style="background-image: url(../public/image/image4.jpg);">
-        <div id="header" data-role="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
-            <svg id="headerBarFind" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
-                <rect width="100%" height="100%" style="fill: #0086b2" />
-            </svg>
-            <h1 class="pageTitle">otherEtchings</h1>
-            <a href="#etch" id="leftBtn" data-transition="slide" data-direction="reverse">
-                <img class="navIcon" src="../public/images/+.svg">
-            </a>
-            <a href="#" id="rightBtn">
-                <img class="navIcon" src="../public/images/+.svg">
-            </a>
-        </div>
-        <!-- /header -->
-        <div id="gradient"></div>
-        <div id="etchBackground"></div>
-        <!-- Story pages -->
-        <div role="main" class="ui-content" id="mainpage">
-            <div id="etchsContainer">
-                <div class="etchContent" id="etch1">
-                    <div id="result1">
-                        <h1><%= headline1 %></h1>
-<!--                        <h1>Lorem Ipsum</h1>-->
-                    </div>
-                    <div id="result2">
-                        <h2><%= author1 %></h2>
-<!--                        <h2>Neque porro quisquam </h2>-->
-                    </div>
-                    <div id="result3">
-                        <p><%= story1 %></p>
-<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat aliquet augue vel viverra. Quisque aliquam, massa non tempus varius, urna enim condimentum elit, non interdum augue ligula sit amet dolor. Ut ultricies feugiat viverra. Cras nunc libero, mollis ut porttitor condimentum, iaculis ac libero. Maecenas porttitor lorem sit amet ornare adipiscing. Nullam ac malesuada metus. Curabitur a rutrum eros, id condimentum libero. Nam in porta ipsum, faucibus commodo nunc. Integer sed nibh enim. Curabitur dui elit, scelerisque nec arcu in, consequat fermentum dui. Nulla facilisi.</p>-->
-                    </div>
-                </div>
-
-                <div class="etchContent" id="etch2" style="display:none">
-                    <div id="result4">
-                        <h1><%= headline2 %></h1>
-                    </div>
-                    <div id="result5">
-                        <h2><%= author2 %></h2>
-                    </div>
-                    <div id="result6">
-                        <p>
-                            <%= story2 %>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="etchContent" id="etch3" style="display:none">
-                    <div id="result7">
-                        <h1><%= headline3 %></h1>
-                    </div>
-                    <div id="result8">
-                        <h2><%= author3 %></h2>
-                    </div>
-                    <div id="result9">
-                        <p>
-                            <%= story3 %>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="etchContent" id="etch4" style="display:none">
-                    <div id="result10">
-                        <h1><%= headline4 %></h1>
-                    </div>
-                    <div id="result11">
-                        <h2><%= author4 %></h2>
-                    </div>
-                    <div id="result12">
-                        <p>
-                            <%= story4 %>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="etchContent" id="etch5" style="display:none">
-                    <div id="result13">
-                        <h1><%= headline5 %></h1>
-                    </div>
-                    <div id="result14">
-                        <h2><%= author5 %></h2>
-                    </div>
-                    <div id="result15">
-                        <p>
-                            <%= story5 %>
-                        </p>
-                    </div>
-                </div>
-                <!-- /Story pages -->
+    <body>
+        <!-- Start of first page -->
+        <div data-role="page" id="find" class="fullscreen-img" style="background-image: url(../public/image/image4.jpg);">
+            <div id="header" data-role="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
+                <svg id="headerBarFind" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
+                    <rect width="100%" height="100%" style="fill: #0086b2" />
+                </svg>
+                <h1 class="pageTitle">otherEtchings</h1>
+                <a href="#etch" id="leftBtn" data-transition="slide" data-direction="reverse">
+                    <img class="navIcon" src="../public/images/+.svg">
+                </a>
+                <a href="#" id="rightBtn">
+                    <img class="navIcon" src="../public/images/+.svg">
+                </a>
             </div>
+            <!-- /header -->
+            <div id="gradient"></div>
+            <div id="etchBackground"></div>
+            <!-- Story pages -->
+            <div role="main" class="ui-content" id="mainpage">
+                <div id="etchsContainer">
+                    <div class="etchContent" id="etch1">
+                        <div id="result1">
+                            <h1><%= headline1 %></h1>
+    <!--                        <h1>Lorem Ipsum</h1>-->
+                        </div>
+                        <div id="result2">
+                            <h2><%= author1 %></h2>
+    <!--                        <h2>Neque porro quisquam </h2>-->
+                        </div>
+                        <div id="result3">
+                            <p><%= story1 %></p>
+    <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat aliquet augue vel viverra. Quisque aliquam, massa non tempus varius, urna enim condimentum elit, non interdum augue ligula sit amet dolor. Ut ultricies feugiat viverra. Cras nunc libero, mollis ut porttitor condimentum, iaculis ac libero. Maecenas porttitor lorem sit amet ornare adipiscing. Nullam ac malesuada metus. Curabitur a rutrum eros, id condimentum libero. Nam in porta ipsum, faucibus commodo nunc. Integer sed nibh enim. Curabitur dui elit, scelerisque nec arcu in, consequat fermentum dui. Nulla facilisi.</p>-->
+                        </div>
+                    </div>
 
-            <div id="etchSelector">
-                <ul id="etchSelectorBtns">
-                    <li>
-                        <a id="btn1" href="#etch1">
-                            <svg class="rotating rotated blue" viewbox="0 0 64 64">
-                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
-                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a id="btn2" href="#etch2">
-                            <svg class="rotating" viewbox="0 0 64 64">
-                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
-                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a id="btn3" href="#etch3">
-                            <svg class="rotating" viewbox="0 0 64 64">
-                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
-                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a id="btn4" href="#etch4">
-                            <svg class="rotating" viewbox="0 0 64 64">
-                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
-                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a id="btn5" href="#etch5">
-                            <svg class="rotating" viewbox="0 0 64 64">
-                                <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
-                                <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
+                    <div class="etchContent" id="etch2" style="display:none">
+                        <div id="result4">
+                            <h1><%= headline2 %></h1>
+                        </div>
+                        <div id="result5">
+                            <h2><%= author2 %></h2>
+                        </div>
+                        <div id="result6">
+                            <p>
+                                <%= story2 %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="etchContent" id="etch3" style="display:none">
+                        <div id="result7">
+                            <h1><%= headline3 %></h1>
+                        </div>
+                        <div id="result8">
+                            <h2><%= author3 %></h2>
+                        </div>
+                        <div id="result9">
+                            <p>
+                                <%= story3 %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="etchContent" id="etch4" style="display:none">
+                        <div id="result10">
+                            <h1><%= headline4 %></h1>
+                        </div>
+                        <div id="result11">
+                            <h2><%= author4 %></h2>
+                        </div>
+                        <div id="result12">
+                            <p>
+                                <%= story4 %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="etchContent" id="etch5" style="display:none">
+                        <div id="result13">
+                            <h1><%= headline5 %></h1>
+                        </div>
+                        <div id="result14">
+                            <h2><%= author5 %></h2>
+                        </div>
+                        <div id="result15">
+                            <p>
+                                <%= story5 %>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /Story pages -->
+                </div>
+
+                <div id="etchSelector">
+                    <ul id="etchSelectorBtns">
+                        <li>
+                            <a id="btn1" href="#etch1">
+                                <svg class="rotating rotated blue" viewbox="0 0 64 64">
+                                    <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                    <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btn2" href="#etch2">
+                                <svg class="rotating" viewbox="0 0 64 64">
+                                    <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                    <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btn3" href="#etch3">
+                                <svg class="rotating" viewbox="0 0 64 64">
+                                    <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                    <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btn4" href="#etch4">
+                                <svg class="rotating" viewbox="0 0 64 64">
+                                    <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                    <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btn5" href="#etch5">
+                                <svg class="rotating" viewbox="0 0 64 64">
+                                    <rect x="24" y="0" transform="matrix(0.7071 0.7071 -0.7071 0.7071 32 -13.2548)" fill="#FFFFFF" width="16" height="64" />
+                                    <rect x="24" y="0" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 77.2548 32)" fill="#FFFFFF" width="16" height="64" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
+                <!--            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />-->
             </div>
-
-
-            <!--div id="result4"><img src=./public/image/<%= image %> /></div-->
-            <!--            <input type="submit" value="Change story" id="change" data-icon="star" data-iconpos="right" />-->
+            <!-- /content -->
         </div>
-        <!-- /content -->
-    </div>
-    <!-- /page -->
+        <!-- /page -->
 
 
-    <!-- Start of second page -->
-    <div data-role="page" id="etch">
-        <div id="imgTint"></div>
-        <div data-role="header" id="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
-            <svg id="headerBarEtch" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
-                <rect width="100%" height="100%" style="fill: #0086b2" />
-            </svg>
+        <!-- Start of second page -->
+        <div data-role="page" id="etch">
+            <div id="imgTint"></div>
+            <div data-role="header" id="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
+                <svg id="headerBarEtch" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
+                    <rect width="100%" height="100%" style="fill: #0086b2" />
+                </svg>
 
-            <h1 class="pageTitle">Etch</h1>
+                <h1 class="pageTitle">Etch</h1>
 
-            <a href="#" id="leftBtn">
-                <img src="../public/images/+.svg" class="navIcon">
-            </a>
-            <a href="#find" id="rightBtn" data-transition="slide">
-                <img class="navIcon" src="../public/images/+.svg">
-            </a>
+                <a href="#" id="leftBtn">
+                    <img src="../public/images/+.svg" class="navIcon">
+                </a>
+                <a href="#find" id="rightBtn" data-transition="slide">
+                    <img class="navIcon" src="../public/images/+.svg">
+                </a>
+            </div>
+            <!--header-->
+            <div role="main" class="ui-content">
+
+                <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
+                    <div class="ui-field-contain">
+                        <label for="text-2">Headline:</label>
+                        <input type="text" name="headline" placeholder="Headline" id="headlineID">
+                    </div>
+                    <br>
+                     <div class="ui-field-contain">
+                    <label for="text-2">Author:</label>
+                    <input type="text" name="author" placeholder="Author (Optional)" id="authorID">
+                    </div>
+                    <br>
+                     <div class="ui-field-contain">
+                    <label for="text-2">Etching:</label>
+    <!--                <input type="text" name="etching" placeholder="Your Etching" id="story">-->
+                    <textarea cols="40" rows="8" name="etching" placeholder="Your Etching" id="story"></textarea>
+                    </div>
+                    <br>
+                    <div style="height:0px;overflow:hidden">
+                        <input type="file" id="fileInput" name="fileInput" />
+                    </div>
+                    <button type="button" onclick="chooseFile();">Choose an image</button>
+                    <br>
+
+                    <input type="hidden" name="latitude" id="lat" />
+                    <input type="hidden" name="longitude" id="lng" />
+                    <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
+                </form>
+            </div>
+            <!-- /content -->
+
         </div>
-        <!--header-->
-        <div role="main" class="ui-content">
-
-            <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
-                <div class="ui-field-contain">
-                    <label for="text-2">Headline:</label>
-                    <input type="text" name="headline" placeholder="Headline" id="headlineID">
-                </div>
-                <br>
-                 <div class="ui-field-contain">
-                <label for="text-2">Author:</label>
-                <input type="text" name="author" placeholder="Author (Optional)" id="authorID">
-                </div>
-                <br>
-                 <div class="ui-field-contain">
-                <label for="text-2">Etching:</label>
-<!--                <input type="text" name="etching" placeholder="Your Etching" id="story">-->
-                <textarea cols="40" rows="8" name="etching" placeholder="Your Etching" id="story"></textarea>
-                </div>
-                <br>
-                <div style="height:0px;overflow:hidden">
-                    <input type="file" id="fileInput" name="fileInput" />
-                </div>
-                <button type="button" onclick="chooseFile();">Choose an image</button>
-                <br>
-
-                <input type="hidden" name="latitude" id="lat" />
-                <input type="hidden" name="longitude" id="lng" />
-                <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
-            </form>
-        </div>
-        <!-- /content -->
-
-    </div>
-    <!-- /page -->
-
-   
-</body>
-
+        <!-- /page -->
+    </body>
 </html>
 
 

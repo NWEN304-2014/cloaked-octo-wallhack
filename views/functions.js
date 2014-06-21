@@ -9,3 +9,21 @@ $(document).on('swipeleft','#etch', function ()
 function chooseFile() {
     $("#fileInput").click();
 }
+
+
+//Double tap
+var mylatesttap;
+function doubletap() {
+    var now = new Date().getTime();
+    var timesince = now - mylatesttap;
+    if((timesince < 600) && (timesince > 0)){
+
+    // double tap   
+
+    }else{
+            // too much time to be a doubletap
+         }
+
+    mylatesttap = new Date().getTime();
+
+}

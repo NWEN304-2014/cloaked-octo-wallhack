@@ -17,7 +17,7 @@
         }
         body,
         .ui-link {
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
         #GPS {
             visibility: hidden;
@@ -150,9 +150,6 @@
             background: -ms-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* IE10+ */
             background: linear-gradient(to bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* W3C */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-
-
-
         }
         .ui-btn {
             color: #ffffff;
@@ -423,8 +420,9 @@
 
          // Story navigation buttons
         $(document).ready(function () {
+            //Initial etch height
             var etchHeight = $("#etch1").height();
-            $("#etchBackground").css("height", etchHeight);
+            $("#etchBackground").css("height", etchHeight*1.5);
 
             $("#btn1").click(function () {
                 $("#etch1").show();
@@ -525,6 +523,65 @@
         function chooseFile() {
             $("#fileInput").click();
         }
+        
+        //Double tap detection for fullscreen image
+        $("etchsContainer").doubletap(
+            /** doubletap-dblclick callback */
+            function(event){
+                $("#etch1").html();
+            },
+            /** touch-click callback (touch) */
+            function(event){
+                $("#etch2").html();
+            },
+            /** doubletap-dblclick delay (default is 500 ms) */
+            400
+        );
+    </script>
+    
+    <script>
+        /*!
+        * jQuery Double Tap Plugin.
+        *
+        * Copyright (c) 2010 Raul Sanchez (http://www.appcropolis.com)
+        *
+        * Dual licensed under the MIT and GPL licenses:
+        * http://www.opensource.org/licenses/mit-license.php
+        * http://www.gnu.org/licenses/gpl.html
+        */
+        (function($){
+            // Determine if we on iPhone or iPad
+            var isiOS = false;
+            var agent = navigator.userAgent.toLowerCase();
+            if(agent.indexOf('iphone') &gt;= 0 || agent.indexOf('ipad') &gt;= 0){
+                   isiOS = true;
+            }
+            $.fn.doubletap = function(onDoubleTapCallback, onTapCallback, delay){
+                var eventName, action;
+                delay = delay == null? 500 : delay;
+                eventName = isiOS == true? 'touchend' : 'click';
+                $(this).bind(eventName, function(event){
+                    var now = new Date().getTime();
+                    var lastTouch = $(this).data('lastTouch') || now + 1 /** the first time this will make delta a negative number */;
+                    var delta = now - lastTouch;
+                    clearTimeout(action);
+                    if(delta&lt;500 &amp;&amp; delta&gt;0){
+                        if(onDoubleTapCallback != null &amp;&amp; typeof onDoubleTapCallback == 'function'){
+                            onDoubleTapCallback(event);
+                        }
+                    }else{
+                        $(this).data('lastTouch', now);
+                        action = setTimeout(function(evt){
+                            if(onTapCallback != null &amp;&amp; typeof onTapCallback == 'function'){
+                                onTapCallback(evt);
+                            }
+                            clearTimeout(action);   // clear the timeout
+                        }, delay, [event]);
+                    }
+                    $(this).data('lastTouch', now);
+                });
+            };
+        })(jQuery);
     </script>
 </body>
 

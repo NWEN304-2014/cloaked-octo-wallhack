@@ -23,11 +23,11 @@ client.connect();
 var stories = [];
 var key;
 
-app.get('/', function (req, res) {
+app.get('http://rocky-hamlet-2798.herokuapp.com/', function (req, res) {
   res.render('index', {});
 });
 
-app.post('/base', function(req, res){
+app.post('http://rocky-hamlet-2798.herokuapp.com/base', function(req, res){
     
     var query = client.query('SELECT * FROM stories', function(err, result) {
       if(err){
@@ -69,7 +69,7 @@ app.post('/base', function(req, res){
 
 });
 
-app.get('/base', function (req, res) {
+app.get('http://rocky-hamlet-2798.herokuapp.com/base', function (req, res) {
     if(stories.length==0) {
 	  res.render('base', {
 		  headline : "There is no stories in this area", 
@@ -106,7 +106,7 @@ app.get('/base', function (req, res) {
 
 
 
-app.get('/base/image/:index', function (req, res) {
+app.get('http://rocky-hamlet-2798.herokuapp.com/base/image/:index', function (req, res) {
    if(stories.length <= req.params.index || req.params.index < 0) {
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
@@ -114,7 +114,7 @@ app.get('/base/image/:index', function (req, res) {
   res.send({"imageName" : stories[req.params.index].image});
 });
 
-app.post('/base/upload', function (req, res) {
+app.post('http://rocky-hamlet-2798.herokuapp.com/base/upload', function (req, res) {
     console.log(req.files);
 
     if(!req.body.hasOwnProperty('etching') || !req.body.hasOwnProperty('headline') || !req.body.hasOwnProperty('latitude') || !req.body.hasOwnProperty('longitude')) {
@@ -151,7 +151,7 @@ app.post('/base/upload', function (req, res) {
   });
 });
 
-app.get('/base/uploads/:file', function (request, response) {
+app.get('http://rocky-hamlet-2798.herokuapp.com/base/uploads/:file', function (request, response) {
 	var file = request.params.file;
 	var img = fs.readFileSync(__dirname + "/public/image/" + file);
 	response.writeHead(200, {'Content-Type': 'image/jpeg' });

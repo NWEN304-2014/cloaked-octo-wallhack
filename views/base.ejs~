@@ -92,17 +92,15 @@
         input{
             margin-left: 0;
         }
-        .ui-mobile label, .uploadLabel{
+        .ui-mobile label{
             background-color: #0086b2;
             margin-right:0;
-            margin-top: 0;
-            padding-top:0.46em;
-            padding-bottom:0.5em;
-            padding-left: 0.5em;
-            font-size: 1em;
+            min-height: 2.2em;
         }
         #etchSelector {
             position: fixed;
+            right: 1vh;
+            bottom: 0px;
             top: 20vh;
             -webkit-backface-visibility: hidden;
         }
@@ -131,7 +129,6 @@
         #etchBackground {
             position: absolute;
             background: rgba(0, 0, 0, 1);
-            left:0;
             width: 100vw;
             top: 100vh;
             height: 100%;
@@ -145,7 +142,6 @@
         #gradient {
             width: 100vw;
             top: 0;
-            left:0;
             height: 100%;
             position:absolute;
 
@@ -156,6 +152,9 @@
             background: -ms-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* IE10+ */
             background: linear-gradient(to bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 59%,rgba(0,0,0,1) 100%); /* W3C */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+        }
+        .ui-btn {
+            color: #ffffff;
         }
         .rotating {
             -webkit-transition: all 0.3s ease-in-out;
@@ -172,15 +171,12 @@
         .blue rect{
             fill: #0086b2;
         }
-        #story, .ui-shadow-inset{
-            box-shadow: none;
-        }
     </style>
 </head>
 
 <body>
     <!-- Start of first page -->
-    <div data-role="page" id="find" class="ui-content fullscreen-img" style="background-image: url(../public/image/<%=image%>);">
+    <div data-role="page" id="find" class="ui-content" style="background-image: url(../public/image/<%=image%>); background-size: cover;">
         <div id="header" data-role="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
             <svg id="headerBarFind" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
                 <rect width="100%" height="100%" style="fill: #0086b2" />
@@ -345,36 +341,30 @@
 
             <form method="post" enctype="multipart/form-data" action="/base/upload" data-ajax="false">
                 <div class="ui-field-contain">
-                    <label class="uploadLabel" for="text-2">Headline:</label>
+                    <label for="text-2">Headline:</label>
                     <input type="text" name="headline" placeholder="Headline" id="headlineID">
                 </div>
-                
                 <br>
-                
-                <div class="ui-field-contain">
-                    <label class="uploadLabel" for="text-2">Author:</label>
-                    <input type="text" name="author" placeholder="Author (Optional)" id="authorID">
+                 <div class="ui-field-contain">
+                <label for="text-2">Author:</label>
+                <input type="text" name="author" placeholder="Author (Optional)" id="authorID">
                 </div>
-                
                 <br>
-                
-                <div class="ui-field-contain">
-                    <label class="uploadLabel" for="text-2">Etching:</label>
-    <!--                <input type="text" name="etching" placeholder="Your Etching" id="story">-->
-                    <textarea cols="40" rows="2" name="etching" placeholder="Your Etching" id="story"></textarea>
+                 <div class="ui-field-contain">
+                <label for="text-2">Etching:</label>
+<!--                <input type="text" name="etching" placeholder="Your Etching" id="story">-->
+                <textarea cols="40" rows="8" name="etching" placeholder="Your Etching" id="story"></textarea>
                 </div>
-                
                 <br>
                 <div style="height:0px;overflow:hidden">
                     <input type="file" id="fileInput" name="fileInput" />
                 </div>
-                
-                <button type="button" onclick="chooseFile();" data-shadow="false">Choose an image</button>
+                <button type="button" onclick="chooseFile();">Choose an image</button>
                 <br>
 
                 <input type="hidden" name="latitude" id="lat" />
                 <input type="hidden" name="longitude" id="lng" />
-                <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" data-shadow="false"/>
+                <input type="submit" value="Submit your story" id="submitButton" data-icon="plus" data-iconpos="right" />
             </form>
         </div>
         <!-- /content -->
@@ -401,7 +391,6 @@
             //Initial etch height
             var etchHeight = $("#etch1").height();
             $("#etchBackground").css("height", etchHeight*1.5);
-            
             var index;
             $("#btn1").bind("click", function (event, ui) {
                 $("#etch1").show();
@@ -559,42 +548,7 @@
                 viewHeight = window.innerHeight;
                 viewWidth = window.innerWidth;
                 document.getElementById("etchsContainer").style.width = viewWidth - (0.18 * viewHeight) + 'px';
-                document.getElementById("etchSelector").style.left = viewWidth - (0.17*viewHeight) + 'px';
             }
-                
-            var mylatesttap;
-            $("#mainpage").click( function doubletap() {
-//                    console.log('click');
-//                    console.log(mylatesttap);
-                    var now = new Date().getTime();
-//                    console.log(now);
-                    var timesince = now - mylatesttap;
-//                    console.log(timesince);
-                    
-                    if((timesince < 600) && (timesince > 0)){
-                        // double tap   
-//                        console.log('double tap');
-                        $("#header").fadeToggle( "slow", "linear" );
-                        $("#etchSelector").fadeToggle( "slow", "linear" );
-                        $("#etchsContainer").fadeToggle( "slow", "linear" );
-                        $("#gradient").fadeToggle( "slow", "linear" );
-                        $("#etchBackground").fadeToggle( "slow", "linear" );
-                        
-                        
-                        
-                        $("#fullscreen-img").css("background-size", contain);
-                    }else{
-                            // too much time to be a doubletap
-
-//                        console.log('not double tap');
-                         }
-
-                    mylatesttap = new Date().getTime();
-//                    console.log(mylatesttap);
-
-                }
-            );
-
         });
 
         
@@ -609,7 +563,66 @@
         function chooseFile() {
             $("#fileInput").click();
         }
+        
+//        //Double tap detection for fullscreen image
+//        $("etchsContainer").doubletap(
+//            /** doubletap-dblclick callback */
+//            function(event){
+//                $("#etch1").html();
+//            },
+//            /** touch-click callback (touch) */
+//            function(event){
+//                $("#etch2").html();
+//            },
+//            /** doubletap-dblclick delay (default is 500 ms) */
+//            400
+//        );
     </script>
+    
+    <!--<script>
+        /*!
+        * jQuery Double Tap Plugin.
+        *
+        * Copyright (c) 2010 Raul Sanchez (http://www.appcropolis.com)
+        *
+        * Dual licensed under the MIT and GPL licenses:
+        * http://www.opensource.org/licenses/mit-license.php
+        * http://www.gnu.org/licenses/gpl.html
+        */
+        (function($){
+            // Determine if we on iPhone or iPad
+            var isiOS = false;
+            var agent = navigator.userAgent.toLowerCase();
+            if(agent.indexOf('iphone') &gt;= 0 || agent.indexOf('ipad') &gt;= 0){
+                   isiOS = true;
+            }
+            $.fn.doubletap = function(onDoubleTapCallback, onTapCallback, delay){
+                var eventName, action;
+                delay = delay == null? 500 : delay;
+                eventName = isiOS == true? 'touchend' : 'click';
+                $(this).bind(eventName, function(event){
+                    var now = new Date().getTime();
+                    var lastTouch = $(this).data('lastTouch') || now + 1 /** the first time this will make delta a negative number */;
+                    var delta = now - lastTouch;
+                    clearTimeout(action);
+                    if(delta&lt;500 &amp;&amp; delta&gt;0){
+                        if(onDoubleTapCallback != null &amp;&amp; typeof onDoubleTapCallback == 'function'){
+                            onDoubleTapCallback(event);
+                        }
+                    }else{
+                        $(this).data('lastTouch', now);
+                        action = setTimeout(function(evt){
+                            if(onTapCallback != null &amp;&amp; typeof onTapCallback == 'function'){
+                                onTapCallback(evt);
+                            }
+                            clearTimeout(action);   // clear the timeout
+                        }, delay, [event]);
+                    }
+                    $(this).data('lastTouch', now);
+                });
+            };
+        })(jQuery);
+    </script>-->
 </body>
 
 </html>

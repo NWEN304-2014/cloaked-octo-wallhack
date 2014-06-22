@@ -182,6 +182,7 @@
 <body>
     <!-- Start of first page -->
     <div data-role="page" id="find" class="ui-content fullscreen-img" style="background-image: url(../public/image/<%=image%>);">
+<!--    <div data-role="page" id="find" class="ui-content fullscreen-img" style="background-image: url(../public/image/test.jpg);">-->
         <div id="header" data-role="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
             <svg id="headerBarFind" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
                 <rect width="100%" height="100%" style="fill: #0086b2" />
@@ -583,7 +584,10 @@
                         
                         
                         
-                        $("#fullscreen-img").css("background-size", contain);
+                        $(".fullscreen-img").css("background-size", "100% auto");
+                        $(".fullscreen-img").css("background-position", "center center");
+                        
+                        
                     }else{
                             // too much time to be a doubletap
 

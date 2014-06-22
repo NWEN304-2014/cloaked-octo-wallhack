@@ -601,9 +601,18 @@
         
         // Swiping to navigate between pages
         $(document).on('swiperight','#find', function()
-            { $.mobile.changePage("#etch"); });
+            { 
+                $.mobile.changePage("#etch", {
+                    transition:"slide",
+                    reverse: true
+                });
+            });
         $(document).on('swipeleft','#etch', function()
-            { $.mobile.changePage("#find"); });
+            { 
+                $.mobile.changePage("#find", {
+                transition:"slide"
+                }); 
+            });
         
         
         // For the upload page, formatting of the choose file button

@@ -103,16 +103,8 @@
         }
         #etchSelector {
             position: fixed;
-            right: 0;
-/*            bottom: 0px;*/
             top: 20vh;
             -webkit-backface-visibility: hidden;
-        }
-         #etchSelectorBtns{
-            position: fixed;
-            right: 0;
-/*            bottom: 0px;*/
-            top: 20vh;
         }
         #etchsContainer {
             /*            width: 90vh;*/
@@ -519,6 +511,7 @@
                 viewHeight = window.innerHeight;
                 viewWidth = window.innerWidth;
                 document.getElementById("etchsContainer").style.width = viewWidth - (0.18 * viewHeight) + 'px';
+                document.getElementById("etchSelector").style.left = viewWidth - (0.17*viewHeight) + 'px';
             }
             
             

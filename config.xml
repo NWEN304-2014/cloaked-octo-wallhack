@@ -19,7 +19,7 @@
 
         <!--  App icon  -->
         <icon src="icon.png" />
-        
+        <gap:splash src="splash.png" />
 
         <!--  App settings  -->
         <preference name="orientation" value="portait" />

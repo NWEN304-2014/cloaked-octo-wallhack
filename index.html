@@ -108,13 +108,11 @@
             font-size: 1em;
         }
         #etchSelector {
-            z-index: 2;
             position: fixed;
             top: 20vh;
             -webkit-backface-visibility: hidden;
         }
         #etchsContainer {
-            z-index: 2;
             margin-top: 70vh; 	
             transform: translate3d(0,0,0);
         }
@@ -150,7 +148,6 @@
             margin-top: 1.5vh;
         }
         #gradient {
-            z-index: 1;
             width: 100vw;
             top: 0;
             left:0;
@@ -548,25 +545,25 @@
                 document.getElementById("etchSelector").style.left = viewWidth - (0.17*viewHeight) + 'px';
             }                
 
-            $("#gradient").on({ 'touchstart' : function() {
-                        $("#header").fadeToggle( "slow", "linear" );
-                        $("#etchSelector").fadeToggle( "slow", "linear" );
-                        $("#etchsContainer").fadeToggle( "slow", "linear" );
-                        $("#gradient").fadeToggle( "slow", "linear" );
-                        $("#etchBackground").fadeToggle( "slow", "linear" );
-                    }
-                }
-            );
-            $('#mainpage').on({ 'touchstart' : function() {
-                if(!$('#gradient').is(':visible')){
-                    $("#header").fadeToggle( "slow", "linear" );
-                    $("#etchSelector").fadeToggle( "slow", "linear" );
-                    $("#etchsContainer").fadeToggle( "slow", "linear" );
-                    $("#gradient").fadeToggle( "slow", "linear" );
-                    $("#etchBackground").fadeToggle( "slow", "linear" );
-                    }
-                }
-            });
+//            $("#gradient").on({ 'touchstart' : function() {
+//                        $("#header").fadeToggle( "slow", "linear" );
+//                        $("#etchSelector").fadeToggle( "slow", "linear" );
+//                        $("#etchsContainer").fadeToggle( "slow", "linear" );
+//                        $("#gradient").fadeToggle( "slow", "linear" );
+//                        $("#etchBackground").fadeToggle( "slow", "linear" );
+//                    }
+//                }
+//            );
+//            $('#mainpage').on({ 'touchstart' : function() {
+//                if(!$('#gradient').is(':visible')){
+//                    $("#header").fadeToggle( "slow", "linear" );
+//                    $("#etchSelector").fadeToggle( "slow", "linear" );
+//                    $("#etchsContainer").fadeToggle( "slow", "linear" );
+//                    $("#gradient").fadeToggle( "slow", "linear" );
+//                    $("#etchBackground").fadeToggle( "slow", "linear" );
+//                    }
+//                }
+//            });
 
         });
         

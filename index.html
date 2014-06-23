@@ -349,7 +349,7 @@
     <script type="text/javascript">
         $(document).bind('pageinit', function () {
             $.ajaxSetup({
-                cache: true
+                cache: false
             });      
         });
 
@@ -387,24 +387,24 @@
                         selected.push(Stories[i]);
                     }
                     
-                    $("#result1").html( "<h1>"+selected[0].headline+"</h1>");
-                    $("#result2").html( "<h2>"+selected[0].author+"</h2>");
+                    $("#result1").html( "<h2>"+selected[0].headline+"</h2>");
+                    $("#result2").html( "<h3>"+selected[0].author+"</h3>");
                     $("#result3").html( "<p>"+selected[0].story+"</p>");
 
-                    $("#result4").html( "<h1>"+selected[1].headline+"</h1>");
-                    $("#result5").html( "<h2>"+selected[1].author+"</h2>");
+                    $("#result4").html( "<h2>"+selected[1].headline+"</h2>");
+                    $("#result5").html( "<h3>"+selected[1].author+"</h3>");
                     $("#result6").html( "<p>"+selected[1].story+"</p>");
 
-                    $("#result7").html( "<h1>"+selected[2].headline+"</h1>");
-                    $("#result8").html( "<h2>"+selected[2].author+"</h2>");
+                    $("#result7").html( "<h2>"+selected[2].headline+"</h2>");
+                    $("#result8").html( "<h3>"+selected[2].author+"</h3>");
                     $("#result9").html( "<p>"+selected[2].story+"</p>");
 
-                    $("#result10").html( "<h1>"+selected[3].headline+"</h1>");
-                    $("#result11").html( "<h2>"+selected[3].author+"</h2>");
+                    $("#result10").html( "<h2>"+selected[3].headline+"</h2>");
+                    $("#result11").html( "<h3>"+selected[3].author+"</h3>");
                     $("#result12").html( "<p>"+selected[3].story+"</p>");
 
-                    $("#result13").html( "<h1>"+selected[4].headline+"</h1>");
-                    $("#result14").html( "<h2>"+selected[4].author+"</h2>");
+                    $("#result13").html( "<h2>"+selected[4].headline+"</h2>");
+                    $("#result14").html( "<h3>"+selected[4].author+"</h3>");
                     $("#result15").html( "<p>"+selected[4].story+"</p>");
                     var image = $('#find');
                     if(selected[0].image!=null) {

@@ -25,7 +25,7 @@
         <preference name="orientation" value="portait" />
         <preference name="fullscreen" value="true" />
 
-        <preference name="android-minSdkVersion" value="19" />
+        <preference name="android-minSdkVersion" value="16" />
 
         <!--    Settings to implement a splash screen    -->
 <!--

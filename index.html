@@ -108,6 +108,7 @@
             font-size: 1em;
         }
         #etchSelector {
+            z-index: 2;
             position: fixed;
             top: 20vh;
             -webkit-backface-visibility: hidden;
@@ -149,19 +150,19 @@
             margin-top: 1.5vh;
         }
         #gradient {
+            z-index: 1;
             width: 100vw;
             top: 0;
             left:0;
             height: 100%;
             position:absolute;
-
             background: -moz-linear-gradient(top,  rgba(93,95,96,0) 0%, rgba(93,95,96,0.3) 56%, rgba(93,95,96,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(93,95,96,0)), color-stop(56%,rgba(93,95,96,0.3)), color-stop(100%,rgba(93,95,96,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005d5f60', endColorstr='#5d5f60',GradientType=0 ); /* IE6-9 */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(93,95,96,0)), color-stop(56%,rgba(93,95,96,0.3)), color-stop(100%,rgba(93,95,96,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(93,95,96,0) 0%,rgba(93,95,96,0.3) 56%,rgba(93,95,96,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005d5f60', endColorstr='#5d5f60',GradientType=0 ); /* IE6-9 */
 
         }
         .rotating {
@@ -207,7 +208,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005d5f60', e
         <div role="main" class="ui-content" id="mainpage">
             <div id="etchsContainer">
                 <div class="etchContent" id="etch1">
-                    <div id="result1"><p>alelelelelelelelelelelelelelelelelelellelelelelelelelelelell</p></div>
+                    <div id="result1"></div>
                     <div id="result2"></div>
                     <div id="result3"></div>
                 </div>
@@ -546,38 +547,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005d5f60', e
                 document.getElementById("etchsContainer").style.width = viewWidth - (0.18 * viewHeight) + 'px';
                 document.getElementById("etchSelector").style.left = viewWidth - (0.17*viewHeight) + 'px';
             }                
-            var mylatesttap;
-            $("#mainpage").click( function doubletap() {
-//                    console.log('click');
-//                    console.log(mylatesttap);
-                    var now = new Date().getTime();
-//                    console.log(now);
-                    var timesince = now - mylatesttap;
-//                    console.log(timesince);
-                    
-                    if((timesince < 600) && (timesince > 0)){
-                        // double tap   
-//                        console.log('double tap');
+
+            $("#gradient").on({ 'touchstart' : function() {
                         $("#header").fadeToggle( "slow", "linear" );
                         $("#etchSelector").fadeToggle( "slow", "linear" );
                         $("#etchsContainer").fadeToggle( "slow", "linear" );
                         $("#gradient").fadeToggle( "slow", "linear" );
                         $("#etchBackground").fadeToggle( "slow", "linear" );
-                        
-                        
-                        
-                        //$("#fullscreen-img").css("background-size", contain);
-                    }else{
-                            // too much time to be a doubletap
-
-//                        console.log('not double tap');
-                         }
-
-                    mylatesttap = new Date().getTime();
-//                    console.log(mylatesttap);
-
+                    }
                 }
             );
+            $('#mainpage').on({ 'touchstart' : function() {
+                if(!$('#gradient').is(':visible')){
+                    $("#header").fadeToggle( "slow", "linear" );
+                    $("#etchSelector").fadeToggle( "slow", "linear" );
+                    $("#etchsContainer").fadeToggle( "slow", "linear" );
+                    $("#gradient").fadeToggle( "slow", "linear" );
+                    $("#etchBackground").fadeToggle( "slow", "linear" );
+                    }
+                }
+            });
 
         });
         

@@ -43,6 +43,11 @@
             height: 10vh;
             background-color: transparent;
             border: none;
+            color: #ffffff;
+            font-size: 4.5vh;
+        }
+        #header h1{
+            margin-top: -1vh;
         }
         #rightBtn,
         #leftBtn {
@@ -191,7 +196,7 @@
                 <img class="navIcon" src="public/image/+.svg">
             </a>
             <a href="#" id="rightBtn">
-                <img class="navIcon" src="public/image/+.svg">
+                <img class="navIcon" src="public/image/many.svg">
             </a>
         </div>
         <!-- /header -->
@@ -297,7 +302,7 @@
                 <img src="public/image/+.svg" class="navIcon">
             </a>
             <a href="#find" id="rightBtn" data-transition="slide">
-                <img class="navIcon" src="public/image/+.svg">
+                <img class="navIcon" src="public/image/many.svg">
             </a>
         </div>
         <!--header-->
@@ -539,8 +544,7 @@
                 viewWidth = window.innerWidth;
                 document.getElementById("etchsContainer").style.width = viewWidth - (0.18 * viewHeight) + 'px';
                 document.getElementById("etchSelector").style.left = viewWidth - (0.17*viewHeight) + 'px';
-            }
-                
+            }                
             var mylatesttap;
             $("#mainpage").click( function doubletap() {
 //                    console.log('click');
@@ -575,7 +579,6 @@
             );
 
         });
-
         
         // Swiping to navigate between pages
         $(document).on('swiperight','#find', function()
@@ -584,7 +587,7 @@
                     transition:"slide",
                     reverse: true
                 });
-            });
+            });     
         $(document).on('swipeleft','#etch', function()
             { 
                 $.mobile.changePage("#find", {
